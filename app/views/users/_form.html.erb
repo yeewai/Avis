@@ -1,0 +1,89 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_area :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_area :password %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.number_field :role %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_area :email %>
+  </div>
+  <div class="field">
+    <%= f.label :notify %><br />
+    <%= f.check_box :notify %>
+  </div>
+  <div class="field">
+    <%= f.label :gmt %><br />
+    <%= f.number_field :gmt %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.date_select :status %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday %>
+  </div>
+  <div class="field">
+    <%= f.label :zodiac %><br />
+    <%= f.text_area :zodiac %>
+  </div>
+  <div class="field">
+    <%= f.label :residence %><br />
+    <%= f.text_area :residence %>
+  </div>
+  <div class="field">
+    <%= f.label :colour %><br />
+    <%= f.text_area :colour %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_area :position %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_area :website %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_field :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :quote %><br />
+    <%= f.text_area :quote %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.text_area :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :theme %><br />
+    <%= f.number_field :theme %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

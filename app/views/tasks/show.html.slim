@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Task:
+  = @task.task
+p
+  strong State:
+  = @task.state
+p
+  strong Kind:
+  = @task.kind
+p
+  strong Owner:
+  = @task.owner
+p
+  strong Project:
+  = @task.project
+
+= link_to 'Edit', edit_task_path(@task)
+'|
+= link_to 'Back', tasks_path

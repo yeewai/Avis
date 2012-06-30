@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+  $text : #4e5e4e;
+  $bg :  #d0dfcb;
+  $contentbg :  #f0f6f0;
+
+body {
+	text-align:left;
+	font-family: Arial, sans-serif;
+	color: $text;
+	background-color: $bg;
+}
+
+.content {
+	width: 72%;
+	position: relative;
+	margin-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 2%;
+	background-color: #f0f6f0;
+	z-index: 80;
+	min-height: 600px;
+	border: solid thin #FFF;
+}
+
+.error {
+	color: red;
+}
+
+a {
+	color: #5b7a5b;
+	font-style:italic;
+}
+
+/*BBCode Formatting*/
+
+div.bbcode_quote {
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	border: solid thin #FFF;
+}
+
+div.bbcode_quote_head {
+	background: #4e5e4e;
+	color: #FFF;
+	padding-left: 3px;
+}
+
+div.bbcode_quote_body {
+	padding-left: 10px;
+}
+
+div.bbcode_code {
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	border: solid thin #FFF;
+}
