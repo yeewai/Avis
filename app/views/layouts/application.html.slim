@@ -6,5 +6,9 @@ html
   = javascript_include_tag "application"
   = csrf_meta_tags
   body
+    -  @userloggedin = User.find(cookies[:user_id])
     .content
+      | User id : 
+      =cookies[:user_id]
+      br
       = yield

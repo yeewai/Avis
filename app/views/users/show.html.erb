@@ -7,12 +7,7 @@
 
 <p>
   <b>Password:</b>
-  <%= @user.password_hash %>
-</p>
-<p>
-	<%=BCrypt::Engine.hash_secret("", @user.password_salt) %>
-	<br>
-	<%=BCrypt::Engine.hash_secret("abc", @user.password_salt) %>
+  <%= @user.password_digest %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.authenticate(params[:username], params[:password])
-    if user
-      cookies[:user_id] = {:value => user.id, :expires => Time.now + 60*60*24*30}
+    user = User.find_by_username(params[:username])
+    if user && user.authenticate(params[:password])
+      cookies[:user_id] = {:value => user.id}
       redirect_to users_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    cookies[:user_id] = nil
+    cookies.delete :user_id
     redirect_to root_url
   end
   

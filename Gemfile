@@ -5,11 +5,9 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'pg'
-group :development, :test do
+group :development do 
   gem 'sqlite3'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,7 +24,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -44,9 +42,7 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'compass'
+gem 'bb-ruby' #http://bb-ruby.rubyforge.org/
 
 # file upload management
 gem "paperclip", "~> 2.7"
-
-# user login management helper
-gem "bcrypt-ruby", :require => "bcrypt"

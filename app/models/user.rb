@@ -7,29 +7,9 @@ class User < ActiveRecord::Base
   attr_accessible :bio, :birthday, :colour, :contact, :email, :gmt, :name, :notify, 
   :position, :quote, :residence, :role, :status, :theme, :username, :website, :zodiac, 
   :password, :password_confirmation #does not even need status. Please remove
-  attr_accessor :password
   
   #Password Stuffs
-  include BCrypt
-  before_save :encrypt_password
-  def encrypt_password 
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    else
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret("CP_RocksMySocks", password_salt)
-    end
-  end
-  
-  def self.authenticate(username, password)
-    user = User.find_by_username(username)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      user 
-    else
-      nil
-    end
-  end
+  has_secure_password
   
   #Validations
   validates_presence_of :username;
