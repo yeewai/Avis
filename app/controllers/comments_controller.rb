@@ -3,11 +3,21 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
-
+    @place = find_place
     respond_to do |format|
       format.html # index.html.erb
     end
   end
+  
+  def find_place
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+  
 
   # GET /comments/1
   # GET /comments/1.json

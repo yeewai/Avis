@@ -20,8 +20,8 @@ class Task < ActiveRecord::Base
   
   attr_accessible :kind, :owner, :project, :state, :task
   
-  belongs_to :owner_id
-  belongs_to :project_id, :polymorphic => true
+  belongs_to :owner
+  belongs_to :project, :polymorphic => true
 
   has_one :comment, :as => :place
   
