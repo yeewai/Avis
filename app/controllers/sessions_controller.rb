@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
-      cookies[:user_id] = {:value => user.id}
+      if (params[:remember] == "true")
+        cookies.permanent[:user_token] = {:value => user.token}
+      else
+        cookies[:user_token] = {:value => user.token}
+      end
       redirect_to users_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"
@@ -15,7 +19,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    cookies.delete :user_id
+    cookies.delete :user_token
     redirect_to root_url
   end
   

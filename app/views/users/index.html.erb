@@ -7,7 +7,6 @@
     <th>Email</th>
     <th>Notify</th>
     <th>Gmt</th>
-    <th>Status</th>
     <th>Name</th>
     <th>Birthday</th>
     <th>Zodiac</th>
@@ -27,12 +26,11 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %></td>
-    <td><%= user.password_hash %></td>
+    <td><%= user.password_digest %></td>
     <td><%= user.role %></td>
     <td><%= user.email %></td>
     <td><%= user.notify %></td>
     <td><%= user.gmt %></td>
-    <td><%= user.status %></td>
     <td><%= user.name %></td>
     <td><%= user.birthday %></td>
     <td><%= user.zodiac %></td>

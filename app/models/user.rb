@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
   #Password Stuffs
   has_secure_password
   
+  #Token to store in cookie
+  before_create { generate_token(:token) }
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+  
   #Validations
   validates_presence_of :username;
   has_many :comments

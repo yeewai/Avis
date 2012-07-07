@@ -1,21 +1,30 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @project.name
-p
-  strong Description:
+=render :template => 'layouts/breadcrumbs'
+p.description
   = @project.description
-p
-  strong Status:
-  = @project.status
-p
-  strong Variety:
-  = @project.variety
-p
-  strong Parent:
-  = @project.parent_id
-
-= link_to 'Edit', edit_project_path(@project)
-'|
-= link_to 'Back', projects_path
+/Subcategories
+- if @project.categories.count > 0
+  h2 Categories
+  ul#categories
+    -@project.categories.each do |cat|
+      li = link_to cat.name, cat
+/List files
+/ h2 Files
+/ - if @project.files.nil?
+/   | There are no files in here. :(
+/ - else
+/   ul#categories
+/     -@project.categories.each do |cat|
+/       li = link_to cat.name, cat
+/File upload form (only if leaf node???)
+/List Comments
+h2 Comments
+- if @project.comments.count < 1
+  | There are no files in here. :(
+- else
+  ul#comments
+    -@project.comments.each do |comment|
+      li = comment.content
+/Comment field form
+=render :template => 'comments/new'

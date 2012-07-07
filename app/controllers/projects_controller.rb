@@ -1,41 +1,23 @@
 class ProjectsController < ApplicationController
-  # GET /projects
-  # GET /projects.json
+  before_filter :authorize
+  
   def index
     @projects = Project.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
+    @comment = @project.comments.new #Doesn't quite work the way you'd like it to
   end
 
-  # GET /projects/new
-  # GET /projects/new.json
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
-  # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
   end
 
-  # POST /projects
-  # POST /projects.json
   def create
     @project = Project.new(params[:project])
 
@@ -50,8 +32,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PUT /projects/1
-  # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
 
@@ -66,8 +46,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
