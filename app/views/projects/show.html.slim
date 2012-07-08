@@ -9,15 +9,19 @@ p.description
   ul#categories
     -@project.categories.each do |cat|
       li = link_to cat.name, cat
+      
 /List files
-/ h2 Files
-/ - if @project.files.nil?
-/   | There are no files in here. :(
-/ - else
-/   ul#categories
-/     -@project.categories.each do |cat|
-/       li = link_to cat.name, cat
+h2 Files
+- if @project.items.nil?
+  | There are no files in here. :(
+- else
+  ul#categories
+    -@project.items.each do |item|
+      li = link_to item.name, item
 /File upload form (only if leaf node???)
+- if @project.categories.count < 1
+  =render :template => 'items/new' 
+
 /List Comments
 h2 Comments
 - if @project.comments.count < 1

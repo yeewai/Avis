@@ -1,0 +1,12 @@
+/ In theory, this page only shows up if there are no files attached yet. 
+/ So make that happen. 
+p#notice = notice
+=render :template => 'layouts/breadcrumbs'
+p
+  = @item.status
+  strong   = @item.name
+p
+
+= link_to 'Edit', edit_item_path(@item)
+'|
+= link_to 'Back', @project

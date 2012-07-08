@@ -1,0 +1,16 @@
+h3 New file
+
+= form_for @item do |f|
+  - if @item.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+      ul
+        - @item.errors.full_messages.each do |message|
+          li = message
+
+  = f.text_field :name, :placeholder => "Name of file"
+  = f.hidden_field :hide, :value =>false
+  = f.hidden_field :status, :value =>0
+  = f.hidden_field :project_id, :value => @project.id
+  .actions = f.submit 'Submit and attach a file'
+

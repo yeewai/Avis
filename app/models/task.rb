@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
   #
   # Only an admin or the requestor can delete a task
   # Anyone can accept/reject a task so long as they're not the owner
-  # If a task is rejected, the owner can restart the task or orphan it
+  # If a task is rejected, anyone can restart the task or orphan it
   # Owners can toggle the middle states
   # Admins can toggle all the states
   #

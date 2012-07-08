@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   has_many :comments, :as => "place"
   has_many :categories, :class_name => "Project", :foreign_key => "parent_id"
   has_many :tasks, :as => "project"
+  has_many :items
   
   belongs_to :parent, :class_name => "Project"
 end

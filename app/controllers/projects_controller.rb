@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @comment = @project.comments.new
     @place = @project
+    @item = Item.new
+    #@file = File.new
   end
 
   def new

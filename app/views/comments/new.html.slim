@@ -1,4 +1,4 @@
-h2 New comment
+h3 New comment
 
 = form_for @comment do |f|
   - if @comment.errors.any?
@@ -8,9 +8,7 @@ h2 New comment
         - @comment.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :content
-    = f.text_area :content
+  = f.text_area :content, :placeholder => "Ohai thar."
   = f.hidden_field :user_id, :value => current_user.id
   = f.hidden_field :place_id, :value => @place.id
   = f.hidden_field :place_type, :value => @place.class.name
