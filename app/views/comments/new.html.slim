@@ -1,3 +1,10 @@
+h2 Comments
+- if @place.comments.count < 1
+  | There are no files in here. :(
+- else
+  ul#comments
+    -@place.comments.each do |comment|
+      li = comment.content
 h3 New comment
 
 = form_for @comment do |f|

@@ -22,13 +22,5 @@ h2 Files
 - if @project.categories.count < 1
   =render :template => 'items/new' 
 
-/List Comments
-h2 Comments
-- if @project.comments.count < 1
-  | There are no files in here. :(
-- else
-  ul#comments
-    -@project.comments.each do |comment|
-      li = comment.content
-/Comment field form
+/List Comments and Comment field form
 =render :template => 'comments/new'

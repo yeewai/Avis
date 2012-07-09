@@ -1,12 +1,11 @@
 / In theory, this page only shows up if there are no files attached yet. 
-/ So make that happen. 
+/ So make that happen. Done.
 p#notice = notice
 =render :template => 'layouts/breadcrumbs'
-p
-  = @item.status
+
+p#title
   strong   = @item.name
 p
+  | There's no file in uploaded yet. Please upload one. Kthxbai.
+=render :template => 'media/new'
 
-= link_to 'Edit', edit_item_path(@item)
-'|
-= link_to 'Back', @project

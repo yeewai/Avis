@@ -1,5 +1,7 @@
 Avis::Application.routes.draw do
 
+  resources :media
+
   get "sessions/new"
   get "login" => "sessions#new", :as => "login"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708171411) do
+ActiveRecord::Schema.define(:version => 20120708204641) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20120708171411) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "status"
+  end
+
+  create_table "media", :force => true do |t|
+    t.boolean  "hide"
+    t.string   "media_file_name"
+    t.string   "media_content_type"
+    t.integer  "media_file_size"
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "projects", :force => true do |t|

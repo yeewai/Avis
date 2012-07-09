@@ -1,0 +1,75 @@
+p#notice = notice
+=render :template => 'layouts/breadcrumbs'
+
+p#title
+  =@item.status
+  h1 = @item.name
+p#uploader
+  |--Last modified by 
+  = @uploader.username
+  |  on 
+  = @medium_current.created_at
+  
+
+-if (@medium_current.media_content_type =~ /image/) != nil
+  =image_tag @medium_current.media.url
+.stat
+  p
+    strong Media file name:
+    = @medium_current.media_file_name
+  p
+    strong Media content type:
+    = @medium_current.media_content_type
+  p
+    strong Media file size:
+    = @medium_current.media_file_size
+
+ul#links
+  li Direct 
+  li 
+    textarea = @medium_current.media.url
+  li This page 
+  li 
+    textarea = request.fullpath
+  li BB Code 
+  li 
+    textarea 
+      | [img]
+      = @medium_current.media.url
+      | [/img]
+ul#edit
+  li Rename this item?
+  li 
+    =form_for @item do |f|
+      = f.text_field :name, :placeholder => "Rename this item?"
+      .actions = f.submit 'Rename!'
+  li Upload new Version?
+  li =render :template => 'media/new'
+  li 
+    |Delete? (It's permanent. No undo-ing)
+  li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
+  li = link_to 'Delete all versions', @item, 
+    :confirm => 'Are you SUPER DUPER sure?', :method => :delete
+  
+/List Comments and Comment field form
+=render :template => 'comments/new'
+
+/List Other Versions
+#versions
+  h2 Other versions
+  - if @item.media.count < 2
+    | There are no other versions.
+  - else
+    -@versionnum = 1
+    ul#versions
+      -@item.media.each do |media|
+        -if media.media.url != @medium_current.media.url
+          li 
+            = image_tag media.media.url
+            br
+            | Version 
+            =@versionnum
+            br
+            | Modified on 
+            = media.created_at
+      -@versionnum += 1

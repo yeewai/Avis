@@ -2,10 +2,11 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @project = Project.find(@item.project_id)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @item }
-    end
+    @medium = Medium.new
+    
+    if @item.media.count > 0
+      redirect_to @item.media.first
+    end 
   end
   
   def new
@@ -42,13 +43,13 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   # DELETE /items/1.json
-  # def destroy
-  #   @item = Item.find(params[:id])
-  #   @item.destroy
-  # 
-  #   respond_to do |format|
-  #     format.html { redirect_to items_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+  
+    respond_to do |format|
+      format.html { redirect_to items_url }
+      format.json { head :no_content }
+    end
+  end
 end
