@@ -1,4 +1,5 @@
 class MediaController < ApplicationController
+  before_filter :authorize
   def index
     @media = Medium.all
   end
@@ -10,8 +11,24 @@ class MediaController < ApplicationController
     @uploader = User.find(@medium_current.user_id)
     
     @place = @medium_current
+    @taskplace = @item
     @comment = Comment.new
     @medium = Medium.new
+    @task = Task.new
+    
+    @gr = upload_to_google(@medium_current.media.url, @medium_current.media_content_type)
+    
+  end
+  
+  def upload_to_google(file_path, mime_type)
+    client = GData::Client::DocList.new
+    client.clientlogin('catalyticproductionsgaia@yahoo.com', 'W2PW2PW2P')
+    # file_path = 'public/data/test.doc'
+    # mime_type = 'application/msword'
+    entry = nil
+    docs_feed = "http://docs.google.com/feeds/documents/private/full"
+    
+    response = client.post_file(docs_feed, file_path, mime_type, entry)
   end
 
   def create

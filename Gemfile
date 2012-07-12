@@ -47,3 +47,4 @@ gem 'bb-ruby' #http://bb-ruby.rubyforge.org/
 
 # file upload management
 gem "paperclip", "~> 2.7"
+gem 'gdata'

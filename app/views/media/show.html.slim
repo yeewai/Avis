@@ -10,6 +10,7 @@ p#uploader
   |  on 
   = @medium_current.created_at
   
+/Needs form to change status and make this newest version
 
 -if (@medium_current.media_content_type =~ /image/) != nil
   =image_tag @medium_current.media.url
@@ -23,14 +24,17 @@ p#uploader
   p
     strong Media file size:
     = @medium_current.media_file_size
+  p
+    strong Google Response
 
+/Links to the images dun werk
 ul#links
   li Direct 
   li 
     textarea = @medium_current.media.url
   li This page 
   li 
-    textarea = request.fullpath
+    textarea = request.url
   li BB Code 
   li 
     textarea 
@@ -51,6 +55,8 @@ ul#edit
   li = link_to 'Delete all versions', @item, 
     :confirm => 'Are you SUPER DUPER sure?', :method => :delete
   
+/List Tasks and task field form???
+=render :template => 'tasks/new'
 /List Comments and Comment field form
 =render :template => 'comments/new'
 
@@ -65,7 +71,7 @@ ul#edit
       -@item.media.each do |media|
         -if media.media.url != @medium_current.media.url
           li 
-            = image_tag media.media.url
+            = link_to (image_tag media.media.url), media
             br
             | Version 
             =@versionnum

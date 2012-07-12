@@ -10,12 +10,12 @@ p
   strong Kind:
   = @task.kind
 p
+  strong User:
+  = @task.user_id
+p
   strong Owner:
-  = @task.owner
+  = @task.owner_id
 p
   strong Project:
   = @task.project
 
-= link_to 'Edit', edit_task_path(@task)
-'|
-= link_to 'Back', tasks_path

@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   
   belongs_to :project
   has_many :media
+  has_many :tasks, :as => :project
   
   validates_presence_of :name
 end

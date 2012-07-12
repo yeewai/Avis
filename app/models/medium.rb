@@ -9,4 +9,8 @@ class Medium < ActiveRecord::Base
   
   has_attached_file :media
   validates_attachment_presence :media
+  
+  #google docs viewer?
+  #gdata gem?
+  
 end

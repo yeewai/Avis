@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
     @comment = @project.comments.new
     @place = @project
     @item = Item.new
+    @task = Task.new
+    @taskplace = @project
     #@file = File.new
   end
 

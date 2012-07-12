@@ -5,8 +5,8 @@ class Task < ActiveRecord::Base
   # project (which needs to be renamed) is what the task is for
   # state would be orphaned, assigned, started, finished, accepted/rejected
   # task is the title of the task
-  # comment is a description of the task
-  # The comment's owner will the the requestor
+  # description is a description of the task
+  # The user_id will the the requestor
   #
   # Only an admin or the requestor can delete a task
   # Anyone can accept/reject a task so long as they're not the owner
@@ -18,12 +18,25 @@ class Task < ActiveRecord::Base
   # all tasks in a file. For all tasks in a project, it'd be nice if you could 
   # get all the tasks of the project's children too. Breadth first. 
   
-  attr_accessible :kind, :owner, :project, :state, :task
+  attr_accessible :description, :kind, :owner_id, :project_id, :project_type, 
+    :state, :task, :user_id
   
-  belongs_to :owner
   belongs_to :project, :polymorphic => true
-
-  has_one :comment, :as => :place
+  belongs_to :user
   
-  validates_presence_of :task
+  validates_presence_of :task, :description 
+  
+  #Task States
+  attr_accessible :TASK_ORPHANED   => 0,
+  :TASK_ASSIGNED  => 1,
+  :TASK_STARTED  => 2,
+  :TASK_FINISHED   => 3,
+  :TASK_REJECTED   => 4,
+  :TASK_ACCEPTED   => 5
+  
+  #Task Kinds
+  attr_accessible :TASK_TASK   => 0,
+  :TASK_CHORE  => 1,
+  :TASK_ERROR  => 2,
+  :TASK_SUGGESTION   => 3
 end
