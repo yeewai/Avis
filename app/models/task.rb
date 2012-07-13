@@ -27,16 +27,17 @@ class Task < ActiveRecord::Base
   validates_presence_of :task, :description 
   
   #Task States
-  attr_accessible :TASK_ORPHANED   => 0,
-  :TASK_ASSIGNED  => 1,
-  :TASK_STARTED  => 2,
-  :TASK_FINISHED   => 3,
-  :TASK_REJECTED   => 4,
-  :TASK_ACCEPTED   => 5
+  #Task States
+  TASK_ORPHANED = 0
+  TASK_ASSIGNED = 1
+  TASK_STARTED  = 2
+  TASK_FINISHED = 3
+  TASK_REJECTED = 4
+  TASK_ACCEPTED = 5
   
   #Task Kinds
-  attr_accessible :TASK_TASK   => 0,
-  :TASK_CHORE  => 1,
-  :TASK_ERROR  => 2,
-  :TASK_SUGGESTION   => 3
+  TASK_TASK   = 0
+  TASK_CHORE  = 1
+  TASK_ERROR  = 2
+  TASK_SUGGESTION   = 3
 end

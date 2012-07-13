@@ -27,21 +27,21 @@ h3 New task
     = f.text_area :description, :placeholder => "More details go here if necessary"
   .field
     = f.label :state
-    = f.select :state, [['Orphaned', 0], 
-        ['Assigned', 1], 
-        ['Started', 2],
-        ['Finished', 3],
-        ['Rejected', 4],
-        ['Accepted', 5]]
+    = f.select :state, [['Orphaned', Task::TASK_ORPHANED], 
+        ['Assigned', Task::TASK_ASSIGNED], 
+        ['Started', Task::TASK_STARTED],
+        ['Finished', Task::TASK_FINISHED],
+        ['Rejected', Task::TASK_REJECTED],
+        ['Accepted', Task::TASK_ACCEPTED]]
   .field
     = f.label :kind
     = f.select :kind, 
-      [['Task', 0], 
-        ['Chore', 1],
-        ['Error', 2],
-        ['Suggestion', 3]]
+      [['Task', Task::TASK_TASK], 
+        ['Chore', Task::TASK_CHORE],
+        ['Error', Task::TASK_ERROR],
+        ['Suggestion', Task::TASK_SUGGESTION]]
   .field
     = f.label :owner_id
-    = f.collection_select :owner_id, User.all, :id, :username
+    = f.collection_select :owner_id, User.all, :id, :username, :include_blank => true
 
   .actions = f.submit 'Make new Task'

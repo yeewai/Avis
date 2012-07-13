@@ -6,9 +6,7 @@ Avis::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
 
   resources :projects 
-  resources :items do
-    #files
-  end
+  resources :items
   resources :comments
   resources :tasks
   resources :users

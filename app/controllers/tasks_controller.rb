@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_filter :authorize
-  # GET /tasks
-  # GET /tasks.json
+  
   def index
     @tasks = Task.all
 
@@ -10,8 +9,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
 
@@ -20,8 +17,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
   def new
     @task = Task.new
 
@@ -30,7 +25,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
   end
@@ -39,7 +33,12 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-    
+    if @task.owner_id.nil? 
+      @task.state = Task::TASK_ORPHANED
+    else
+      @task.state = Task::TASK_ASSIGNED
+    end
+      
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task.project, :notice => 'Task was successfully created.' }

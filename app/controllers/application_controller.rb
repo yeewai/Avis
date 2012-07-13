@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def authorize 
     redirect_to login_url alert: "Not logged in!" if current_user.nil?
   end
+  
+  def authorize_admin 
+    render :template => "sessions/admin" if current_user.role != User::ROLE_ADMIN
+  end
 end

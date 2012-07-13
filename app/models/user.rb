@@ -27,9 +27,9 @@ class User < ActiveRecord::Base
   # has_many :files
   
   #User roles
-  attr_accessible :ROLE_BANNED   => 0,
-  :ROLE_RETIRED  => 1,
-  :ROLE_REGULAR  => 2,
-  :ROLE_ADMIN    => 3
+  ROLE_BANNED   = 0
+  ROLE_RETIRED  = 1
+  ROLE_REGULAR  = 2
+  ROLE_ADMIN    = 3
   
 end

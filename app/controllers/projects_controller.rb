@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authorize
+  before_filter :authorize_admin, :only => "new"
   
   def index
     @projects = Project.all
@@ -13,6 +14,10 @@ class ProjectsController < ApplicationController
     @task = Task.new
     @taskplace = @project
     #@file = File.new
+  end
+  
+  def createComic
+    
   end
 
   def new
