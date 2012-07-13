@@ -13,4 +13,5 @@ class ApplicationController < ActionController::Base
   def authorize_admin 
     render :template => "sessions/admin" if current_user.role != User::ROLE_ADMIN
   end
+  
 end

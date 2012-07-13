@@ -1,11 +1,13 @@
 Avis::Application.routes.draw do
 
+
   resources :media
 
   get "sessions/new"
   get "login" => "sessions#new", :as => "login"
 
   resources :projects 
+  post "projects/createComic"
   resources :items
   resources :comments
   resources :tasks

@@ -1,27 +1,11 @@
-h1 Listing projects
+h1 Welcome to AVIS
 
-table
-  tr
-    th Name
-    th Description
-    th Status
-    th Variety
-    th Parent
-    th
-    th
-    th
-
+ul#comics
   - @projects.each do |project|
-    tr
-      td = project.name
-      td = project.description
-      td = project.status
-      td = project.variety
-      td = project.parent_id
-      td = link_to 'Show', project
-      td = link_to 'Edit', edit_project_path(project)
-      td = link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+    li
+      = project.name
+      ul#categories
+        - project.categories.each do |category|
+          li
+          =link_to category.name, category
 
-br
-
-= link_to 'New Project', new_project_path

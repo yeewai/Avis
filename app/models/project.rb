@@ -14,4 +14,9 @@ class Project < ActiveRecord::Base
   has_many :items
   
   belongs_to :parent, :class_name => "Project"
+  
+  #Project Statuses
+  IN_PROGRESS = 0
+  HIATUS = 1
+  COMPLETED  = 2
 end

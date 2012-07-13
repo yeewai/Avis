@@ -27,7 +27,6 @@ class Task < ActiveRecord::Base
   validates_presence_of :task, :description 
   
   #Task States
-  #Task States
   TASK_ORPHANED = 0
   TASK_ASSIGNED = 1
   TASK_STARTED  = 2
