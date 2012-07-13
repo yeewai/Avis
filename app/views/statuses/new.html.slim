@@ -1,0 +1,21 @@
+h1 New status
+
+= form_for @status do |f|
+  - if @status.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@status.errors.count, "error")} prohibited this status from being saved:"
+      ul
+        - @status.errors.full_messages.each do |message|
+          li = message
+  .field
+    = f.text_area :past, :placeholder => 'This past week, I have...'
+  .field
+    | Going on Hiatus? 
+    = f.check_box :hiatus
+  .field
+    | --Be gone til: 
+    = f.date_select :start_late_notice
+  .field
+    = f.text_area :future, :placeholder => 'Next week I will... Or I am going on hiatus because...'
+  = f.hidden_field :user_id, :value => current_user.id
+  .actions = f.submit 'Save'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710043420) do
+ActiveRecord::Schema.define(:version => 20120713051435) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(:version => 20120710043420) do
     t.integer  "parent_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "past"
+    t.text     "future"
+    t.boolean  "hiatus"
+    t.date     "start_late_notice"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "tasks", :force => true do |t|

@@ -1,6 +1,8 @@
 Avis::Application.routes.draw do
 
 
+  resources :statuses
+
   resources :media
 
   get "sessions/new"

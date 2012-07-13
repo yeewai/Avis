@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  past: MyText
+  future: MyText
+  hiatus: false
+  start_late_notice: 2012-07-12
+
+two:
+  user_id: 1
+  past: MyText
+  future: MyText
+  hiatus: false
+  start_late_notice: 2012-07-12

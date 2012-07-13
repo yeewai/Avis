@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @status.user_id
+p
+  strong Past:
+  = @status.past
+p
+  strong Future:
+  = @status.future
+p
+  strong Hiatus:
+  = @status.hiatus
+p
+  strong Start late notice:
+  = @status.start_late_notice
+
+= link_to 'Edit', edit_status_path(@status)
+'|
+= link_to 'Back', statuses_path
