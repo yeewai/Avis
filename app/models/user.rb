@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username;
   has_many :comments
   has_many :tasks
-  # has_many :statuses
+  has_many :statuses
   # has_many :files
   
   #User roles

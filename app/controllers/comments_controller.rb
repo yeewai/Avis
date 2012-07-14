@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_filter :authorize
-  # GET /comments
-  # GET /comments.json
   def index
     @comments = Comment.all
     @place = find_place
@@ -20,8 +18,6 @@ class CommentsController < ApplicationController
   end
   
 
-  # GET /comments/1
-  # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
 
@@ -30,8 +26,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.json
   def new
     @comment = Comment.new
 
@@ -40,13 +34,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
   end
 
-  # POST /comments
-  # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
     respond_to do |format|
@@ -59,8 +50,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PUT /comments/1
-  # PUT /comments/1.json
   def update
     @comment = Comment.find(params[:id])
 
@@ -75,8 +64,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

@@ -2,16 +2,18 @@ h2 Comments
 - if @place.comments.count < 1
   | There are no comments in here. :(
 - else
+  = @place.comments.count
   ul#comments
     -@place.comments.each do |comment|
-      li 
-        h3 =comment.user_id
-        |  said 
-        p
-          | on 
-          =comment.created_at 
-        p
-          = comment.content
+      -if !comment.user_id.nil? 
+        li 
+          h3 =comment.user.username
+          |  said 
+          p
+            | on 
+            =comment.created_at 
+          p
+            = comment.content
 h3 New comment
 
 = form_for @comment do |f|

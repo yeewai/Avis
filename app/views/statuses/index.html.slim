@@ -1,27 +1,12 @@
-h1 Listing statuses
+=render :template => "statuses/new"
 
-table
-  tr
-    th User
-    th Past
-    th Future
-    th Hiatus
-    th Start late notice
-    th
-    th
-    th
+h1 Statuses
+ul#statuses
+  - @users.each do |user|
+    li id=li_id(user.statuses)
+      = user.username 
+      -if user.statuses.count < 1
+        | No status has been updated yet. :(
+      -else
+        = user.statuses.last.past
 
-  - @statuses.each do |status|
-    tr
-      td = status.user_id
-      td = status.past
-      td = status.future
-      td = status.hiatus
-      td = status.start_late_notice
-      td = link_to 'Show', status
-      td = link_to 'Edit', edit_status_path(status)
-      td = link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Status', new_status_path
