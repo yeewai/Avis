@@ -24,8 +24,6 @@ p#uploader
   p
     strong Media file size:
     = @medium_current.media_file_size
-  p
-    strong Google Response
     
   /Links to the images dun werk
   ul#links
@@ -42,6 +40,19 @@ p#uploader
         = @medium_current.media.url
         | [/img]
   ul#edit
+    li Make this version newest?
+    li 
+      =form_for @medium_current do |f|
+        = f.hidden_field :created_at, :value => Time.now
+        .actions = f.submit 'Renew!'
+    li Status
+    li 
+      =form_for @item do |f|
+        = f.select :status, [['Just uploaded', Item::NOT_READY], 
+            ['Being Edited', Item::EDITING], 
+            ['Edited and Ready', Item::READY],
+            ['Implemented in next step', Item::IMPLEMENTED]]
+        .actions = f.submit 'Change status!'
     li Rename this item?
     li 
       =form_for @item do |f|
