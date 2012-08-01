@@ -23,14 +23,11 @@ class StatusesController < ApplicationController
     if !@status.hiatus 
       @status.start_late_notice = Time.now + 7.days
     end
-    respond_to do |format|
-      if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        format.json { render json: @status, status: :created, location: @status }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @status.errors, status: :unprocessable_entity }
-      end
+    if @status.save
+      redirect_to statuses_path, notice: 'Status was successfully created.'
+    else
+      render action: "new" 
+      render json: @status.errors, status: :unprocessable_entity 
     end
   end
 

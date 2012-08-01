@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Role: 0-banned, 1-retired, 2-regular, 3-admin
   attr_accessible :bio, :birthday, :colour, :contact, :email, :gmt, :name, :notify, 
   :position, :quote, :residence, :role, :status, :theme, :username, :website, :zodiac, 
-  :password, :password_confirmation #does not even need status. Please remove
+  :password, :password_confirmation, :avatar #does not even need status. Please remove
   
   #Password Stuffs
   has_secure_password
@@ -24,12 +24,18 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :tasks
   has_many :statuses
-  # has_many :files
+  has_many :media
+  
+  #avatar stuffs
+  has_attached_file :avatar
+  validates_attachment_size :avatar, :less_than => 2.megabytes
+  validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/png', 'image/gif']
   
   #User roles
   ROLE_BANNED   = 0
   ROLE_RETIRED  = 1
   ROLE_REGULAR  = 2
   ROLE_ADMIN    = 3
+  ROLE_PENDING  = 4
   
 end

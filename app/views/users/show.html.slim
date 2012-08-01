@@ -1,0 +1,89 @@
+#notice
+  = notice 
+
+=image_tag @user.avatar.url, class: 'avi'
+.user_info
+  p#username
+    b Username: 
+    = @user.username 
+  p#email
+    b Email: 
+    =@user.email
+  p#contact
+    b Contact: 
+    =@user.contact
+  p#positions
+    b Position(s): 
+    =@user.position
+
+br{clear='all'}   
+
+.module
+  b Latest Tasks
+  - if @user.tasks.count < 1
+    | There are no tasks.
+  - else
+    ul#tasks
+      -@user.tasks.each do |task|
+        li 
+          details{class=task_type(task.kind)}
+            summary
+              =image_tag task_type_image(task.kind)
+              em = task.task
+              |  --  
+              =link_to task.project.name, task.project
+            p
+              =task.description
+/Statuses
+.module
+  strong 
+    Latest Status
+  ul#statuses
+    -@user.statuses.last(1).each do |status|
+      li{id=li_id(@user.statuses) style="width:100%;"}
+        h3 = @user.username
+        |  -- 
+        =li_id(@user.statuses)
+        p
+          -if status.nil?
+            | No status has been updated yet. :(
+          -else
+            h4 This past week I have 
+            = status.past
+            -if !status.hiatus
+              h4 Next week I will
+            -else 
+              h4 
+                | I am on hiatus until 
+                = status.start_late_notice
+                |  because
+            = status.future
+/Comments
+.module
+  b Latest Comments
+  - if @user.comments.count < 1
+    p No comments have been made. :(
+  - else
+    ul#comments
+      -@user.comments.last(5).each do |comment|
+        -if !comment.user_id.nil? 
+          li 
+            =image_tag comment.user.avatar.url, :class => 'avi'
+            h3 =link_to comment.user.username, comment.user
+            |  said 
+            p.date
+              | on 
+              =comment.created_at 
+            p
+              = comment.content
+  
+/Files
+.module
+  b Latest Uploads
+  ul#user_media
+    -@user.media.last(4).each do |medium|
+      li 
+        =link_to medium.item.name, medium
+        =link_to (image_tag thumbnail(medium)), medium
+        
+h2

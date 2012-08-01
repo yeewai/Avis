@@ -1,5 +1,16 @@
+/List files
+h2 Files
+- if @project.items.nil?
+  | There are no files in here. :(
+- else
+  ul#items
+    -@project.items.each do |item|
+      li 
+        =image_tag status_image(item.status), :class => "status"
+        =link_to item.name, item
+        =link_to (image_tag thumbnail(item.media.last)), item
+        
 h3 New file
-
 = form_for @item do |f|
   - if @item.errors.any?
     #error_explanation

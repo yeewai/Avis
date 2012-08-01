@@ -2,18 +2,18 @@ p#notice = notice
 =render :template => 'layouts/breadcrumbs'
 
 p#title
-  =@item.status
+  =image_tag status_image(@item.status), :class => "status"
   h1 = @item.name
 p#uploader
   |--Last modified by 
-  = @uploader.username
+  = link_to @uploader.username, @uploader
   |  on 
   = @medium_current.created_at
   
 /Needs form to change status and make this newest version
-
--if (@medium_current.media_content_type =~ /image/) != nil
-  =image_tag @medium_current.media.url
+.display_file
+  -if (@medium_current.media_content_type =~ /image/) != nil
+    =image_tag @medium_current.media.url
 .stat
   p
     strong Media file name:
@@ -26,39 +26,41 @@ p#uploader
     = @medium_current.media_file_size
   p
     strong Google Response
-
-/Links to the images dun werk
-ul#links
-  li Direct 
-  li 
-    textarea = @medium_current.media.url
-  li This page 
-  li 
-    textarea = request.url
-  li BB Code 
-  li 
-    textarea 
-      | [img]
-      = @medium_current.media.url
-      | [/img]
-ul#edit
-  li Rename this item?
-  li 
-    =form_for @item do |f|
-      = f.text_field :name, :placeholder => "Rename this item?"
-      .actions = f.submit 'Rename!'
-  li Upload new Version?
-  li =render :template => 'media/new'
-  li 
-    |Delete? (It's permanent. No undo-ing)
-  li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
-  li = link_to 'Delete all versions', @item, 
-    :confirm => 'Are you SUPER DUPER sure?', :method => :delete
+    
+  /Links to the images dun werk
+  ul#links
+    li Direct 
+    li 
+      textarea = @medium_current.media.url
+    li This page 
+    li 
+      textarea = request.url
+    li BB Code 
+    li 
+      textarea 
+        | [img]
+        = @medium_current.media.url
+        | [/img]
+  ul#edit
+    li Rename this item?
+    li 
+      =form_for @item do |f|
+        = f.text_field :name, :placeholder => "Rename this item?"
+        .actions = f.submit 'Rename!'
+    li Upload new Version?
+    li =render :template => 'media/new'
+    li 
+      |Delete? (It's permanent. No undo-ing)
+    li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
+    li = link_to 'Delete all versions', @item, 
+      :confirm => 'Are you SUPER DUPER sure?', :method => :delete
   
 /List Tasks and task field form???
-=render :template => 'tasks/new'
+#task
+  =render :template => 'tasks/new'
 /List Comments and Comment field form
-=render :template => 'comments/new'
+#comment
+  =render :template => 'comments/new'
 
 /List Other Versions
 #versions

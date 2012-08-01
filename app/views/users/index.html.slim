@@ -1,0 +1,28 @@
+=render :template => "users/new"
+h1 Listing users
+table
+  tr
+    th
+    th Username
+    th Role
+    th Email
+    th Name
+    th Position
+    th Contact
+    th
+    th
+    th
+
+  -@users.each do |user|
+    tr
+      td = image_tag user.avatar.url
+      td = user.username
+      td = translate_role user.role 
+      td = user.email 
+      td = user.name 
+      td = user.position 
+      td = user.contact
+      td = link_to 'Show', user
+      td = link_to 'Edit', edit_user_path(user) 
+      td = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' } 
+

@@ -4,9 +4,23 @@ h1 Statuses
 ul#statuses
   - @users.each do |user|
     li id=li_id(user.statuses)
-      = user.username 
-      -if user.statuses.count < 1
-        | No status has been updated yet. :(
-      -else
-        = user.statuses.last.past
+      = image_tag user.avatar.url, class: "avi"
+      h3 = link_to user.username, user
+      |  -- 
+      =li_id(user.statuses)
+      p
+        -if user.statuses.count < 1
+          | No status has been updated yet. :(
+        -else
+          h4 This past week I have 
+          = user.statuses.last.past
+          -if !user.statuses.last.hiatus
+            h4 Next week I will
+          -else 
+            h4 
+              | I am on hiatus until 
+              = user.statuses.last.start_late_notice
+              |  because
+          = user.statuses.last.future
 
+h2

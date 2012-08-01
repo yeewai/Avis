@@ -2,14 +2,14 @@ h2 Comments
 - if @place.comments.count < 1
   | There are no comments in here. :(
 - else
-  = @place.comments.count
   ul#comments
     -@place.comments.each do |comment|
       -if !comment.user_id.nil? 
         li 
-          h3 =comment.user.username
+          =image_tag comment.user.avatar.url, :class => 'avi'
+          h3 =link_to comment.user.username, comment.user
           |  said 
-          p
+          p.date
             | on 
             =comment.created_at 
           p
@@ -29,5 +29,3 @@ h3 New comment
   = f.hidden_field :place_id, :value => @place.id
   = f.hidden_field :place_type, :value => @place.class.name
   .actions = f.submit 'Save'
-
-= link_to 'Back', comments_path

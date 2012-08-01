@@ -37,6 +37,25 @@ body {
 	border: solid thin #FFF;
 }
 
+ul#breadcrumbs {
+	float: right;
+	clear: all;
+	font-size: 18px;
+	position: relative;
+	list-style: none;
+	li {
+		float: left;
+		position: relative;
+		padding: 5px;
+	}
+	
+	em {
+		font-weight: bold;
+		font-size: 24px;
+	}
+}
+
+
 .error {
 	color: red;
 }

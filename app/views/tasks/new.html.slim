@@ -4,7 +4,37 @@ h2 Tasks
 - else
   ul#tasks
     -@taskplace.tasks.each do |task|
-      li = task.task
+      li 
+        details{class=task_type(task.kind)}
+          summary
+            =image_tag task_type_image(task.kind)
+            em = task.task
+            |  --  
+            =link_to task.owner.username, task.owner
+          p
+            =task.description
+          =form_for task do |f|
+            .field
+              = f.label :state
+              = f.select :state, [['Orphaned', Task::TASK_ORPHANED], 
+                  ['Assigned', Task::TASK_ASSIGNED], 
+                  ['Started', Task::TASK_STARTED],
+                  ['Finished', Task::TASK_FINISHED],
+                  ['Rejected', Task::TASK_REJECTED],
+                  ['Accepted', Task::TASK_ACCEPTED]]
+            .field
+              = f.label :kind
+              = f.select :kind, 
+                [['Task', Task::TASK_TASK], 
+                  ['Chore', Task::TASK_CHORE],
+                  ['Error', Task::TASK_ERROR],
+                  ['Suggestion', Task::TASK_SUGGESTION]]
+            .field
+              = f.label :owner_id
+              = f.collection_select :owner_id, User.all, :id, :username, :include_blank => true
+            br(clear="all")
+            .actions = f.submit 'Save Task'
+        
       
 h3 New task
 .tooltip

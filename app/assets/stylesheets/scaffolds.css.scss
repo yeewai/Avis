@@ -14,13 +14,6 @@ pre {
   padding: 10px;
   font-size: 11px; }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }
 
 div {
   &.field, &.actions {
@@ -49,7 +42,11 @@ div {
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
-    color: #fff; }
+    color: #fff; 
+		display: block;
+		clear: both;
+		float: none;
+		}
   ul li {
     font-size: 12px;
     list-style: square; } }

@@ -1,3 +1,33 @@
 // Place all the styles related to the Media controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$text : #4e5e4e;
+$bg :  #d0dfcb;
+$contentbg :  #f0f6f0;
+
+.status {
+	float: left;
+	display: inline;
+}
+
+.display_file {
+	float: left;
+	padding: 10px;
+	display: block;
+}
+.stat {
+	float: left;
+	padding: 10px;
+	position: relative;
+	display: block;
+	clear: right;
+	
+	ul#links, ul#edit {
+		padding: 0;
+		list-style: none;
+		position: relative;
+		float: none;
+		display: block;
+		border-top: thin solid $bg;
+	}
+}

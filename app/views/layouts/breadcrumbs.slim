@@ -1,9 +1,11 @@
 - if !@project.nil?
   - @plink = @project
   ul#breadcrumbs
+    li
+      = link_to "Home", root_path
     - while @plink.parent_id != 0 
       li
         = link_to @plink.parent.name, @plink.parent
         - @plink = @plink.parent
     li#current
-      = link_to @project.name, @project
+      em = link_to @project.name, @project

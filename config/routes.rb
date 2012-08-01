@@ -1,10 +1,5 @@
 Avis::Application.routes.draw do
 
-
-  resources :statuses
-
-  resources :media
-
   get "sessions/new"
   get "login" => "sessions#new", :as => "login"
 
@@ -15,8 +10,10 @@ Avis::Application.routes.draw do
   resources :tasks
   resources :users
   resources :sessions
+  resources :statuses
+  resources :media
 
-  root :to => 'sessions#new'
+  root :to => 'projects#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

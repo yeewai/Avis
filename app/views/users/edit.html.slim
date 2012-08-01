@@ -1,0 +1,84 @@
+-if !authorize_edit(@user)
+  redirect_to "sessions#admin"
+  
+h1 Editing user
+
+= form_for(@user) do |f|
+  - if @user.errors.any?
+      #error_explanation
+        h2 
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+
+        ul
+          -@user.errors.full_messages.each do |msg|
+            li = msg 
+            
+  .field
+    = f.label :avatar
+    br
+    = f.file_field :avatar
+  .field
+    = f.label :username
+    br
+    = f.text_field :username, :placeholder => "Username"
+  .field
+    = f.label :password
+    br
+    = f.password_field :password, :placeholder => "Password"
+  .field
+    = f.label :email
+    br
+    = f.text_field :email, :placeholder => "Email"
+  .field
+    = f.label :contact
+    br
+    = f.text_field :contact, :placeholder => "Contact"
+  .field
+    = f.label :gmt
+    br
+    = f.number_field :gmt
+  hr
+  em The rest are optional and what shows up on the main website. (Or will when I get around to implementing that).
+  .field
+    = f.label :name
+    br
+    = f.text_field :name, :placeholder => "Name"
+  .field
+    = f.label :birthday
+    br
+    = f.date_select :birthday
+  .field
+    = f.label :zodiac
+    br
+    = f.text_field :zodiac, :placeholder => "Zodiac"
+  .field
+    = f.label :residence
+    br
+    = f.text_field :residence, :placeholder => "Residence"
+  .field
+    | Favorite Colour
+    br
+    = f.text_field :colour, :placeholder => "Favorite Colour"
+  .field
+    = f.label :position
+    br
+    = f.text_field :position, :placeholder => "Position(s)"
+  .field
+    = f.label :website
+    br
+    = f.text_field :website, :placeholder => "http://"
+  .field
+    = f.label :bio
+    br
+    = f.text_area :bio, :placeholder => "Bio"
+  .field
+    = f.label :quote
+    br
+    = f.text_area :quote, :placeholder => "Ohai thar."
+  .actions
+    = f.submit
+
+
+= link_to 'Show', @user 
+= link_to 'Back', users_path 

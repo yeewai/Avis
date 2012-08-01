@@ -1,3 +1,61 @@
 // Place all the styles related to the Statuses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$text : #4e5e4e;
+$bg :  #d0dfcb;
+$contentbg :  #f0f6f0;
+
+textarea{
+	height: 100px;
+}
+
+ul#statuses {
+	list-style: none;
+	padding: 0;
+	
+	a {
+		color: $text;
+	}
+	
+	h4 {
+		clear: none;
+	}
+	
+	h3 {
+		clear: none;
+		padding: 0;
+		margin: 0;
+		display: inline;
+	}
+	img {
+		max-width: 100px;
+		max-height: 150px;
+		margin-right: 10px;
+	}
+	
+	li {
+		float: left;
+		width: 46%;
+		min-height: 100px;
+		margin: 1%;
+		padding: 1%;
+		-webkit-border-radius: 0px 50px 0px 0px;
+		border-radius: 0px 50px 0px 0px;
+		-webkit-box-shadow: 4px 4px 7px 2px rgba(0, 0, 0, .15);
+		box-shadow: 4px 4px 7px 2px rgba(0, 0, 0, .15);
+		
+		
+		&#none {
+			background-color: #c2cad5;
+		}
+		&#late {
+			background-color: #ec6e6e;
+		}
+		&#ok {
+			background-color: #cef3b8;
+		}
+		&#hiatus {
+			background-color: #dcd3f8;
+		}
+	}
+}

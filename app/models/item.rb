@@ -6,4 +6,10 @@ class Item < ActiveRecord::Base
   has_many :tasks, :as => :project
   
   validates_presence_of :name
+  
+  #Item Statuses
+   NOT_READY    = 0
+   EDITING      = 1
+   READY        = 2
+   IMPLEMENTED  = 3
 end

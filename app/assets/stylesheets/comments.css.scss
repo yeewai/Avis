@@ -1,3 +1,36 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$text : #4e5e4e;
+$bg :  #d0dfcb;
+$contentbg :  #f0f6f0;
+
+ul#comments {
+	padding-left: 15px;
+	li {
+		border: solid thin $bg;
+		list-style: none;
+		padding: 5px;
+		width: 100%;
+		min-height: 120px;
+		
+		img.avi {
+			float: left;
+			max-height: 200px;
+			max-width: 100px;
+			margin-right: 10px
+		}
+		
+		h3 {
+				display: inline;
+				font-size: 1.75em;
+		}
+		
+		p {
+			padding: 0;
+			margin: 0.3em;
+			
+			&.date {
+				font-style: italic;
+				font-size: 0.8em;
+			}
+		}
+	}
+}

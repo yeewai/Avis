@@ -1,3 +1,39 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.avi {
+	float: left;
+}
+.user_info {
+	float: left;
+	padding: 15px;
+	clear: right;
+}
+
+.module {
+	width: 42%;
+	padding: 3%;
+	padding-bottom: 5%;
+	float: left;
+	position: relative;
+	
+	ul {
+		width: 100%;
+		list-style: none;
+		
+		&#user_media{
+			width: 90%;
+			li {
+				width: 46%;
+				float: left;
+				padding: 2%;
+				img {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	
+	
+}
