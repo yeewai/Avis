@@ -7,10 +7,14 @@ class Medium < ActiveRecord::Base
   belongs_to :item
   has_many :comments, :as => :place
   
-  scope :newest, order('created_at DESC')
+  scope :newest, order('created_at DESC').where("place_id != #{Project.find_by_name('Admin').id}")
   
   has_attached_file :media
   validates_attachment_presence :media
+  
+  def name 
+    item.name
+  end
   
   #google docs viewer?
   #gdata gem?

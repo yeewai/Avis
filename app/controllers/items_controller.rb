@@ -4,9 +4,6 @@ class ItemsController < ApplicationController
     @project = Project.find(@item.project_id)
     @medium = Medium.new
     
-    #if @item.name == "AVIS"
-    #if @item.name == "Idea Pot"
-    #if @item.name == "Resources"
     
     if @item.media.count > 0
       redirect_to @item.media.last

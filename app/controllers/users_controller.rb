@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if !authorize_edit(@user)
+      render :template => "sessions/admin"
+    end
   end
 
   def create

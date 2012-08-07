@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
   belongs_to :place, :polymorphic => true
   belongs_to :user
   
+  scope :newest, order('created_at DESC').where("place_id != #{Project.find_by_name('Admin').id}")
+  
   validates_presence_of :content;
 
 end

@@ -13,13 +13,17 @@ ul#comics
 br{clear="all"}
 ul#latest_comments            
   h2 Latest Comments
-  - Comment.all(limit: 5).each do |comment|
+  - Comment.newest(limit: 4).each do |comment|
     li 
       = link_to comment.place.name, comment.place
-      p 
-        | Posted by 
-        = comment.user.username
-      p = summarize(comment.content)
+      =image_tag comment.user.avatar.url, :class => 'avi'
+      h3 =link_to comment.user.username, comment.user
+      |  said 
+      p.date
+        | on 
+        =comment.created_at 
+      p
+        = comment.content
 
 ul#latest_files
   h2 Latest Uploads

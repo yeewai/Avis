@@ -44,6 +44,7 @@ gem 'slim'
 gem 'slim-rails'
 gem 'compass'
 gem 'bb-ruby' #http://bb-ruby.rubyforge.org/
+#gem "th-bbcode"
 
 # file upload management
 gem "paperclip", "~> 2.7"

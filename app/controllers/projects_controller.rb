@@ -8,6 +8,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    if @project.name == "Admin" 
+      authorize_admin
+    end
     @comment = @project.comments.new
     @place = @project
     @item = Item.new

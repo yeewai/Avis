@@ -13,7 +13,7 @@ h2 Comments
             | on 
             =comment.created_at 
           p
-            = comment.content
+            = raw comment.content.bbcode_to_html
 h3 New comment
 
 = form_for @comment do |f|
