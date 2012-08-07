@@ -1,9 +1,13 @@
 // Place all the styles related to the Media controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$text : #4e5e4e;
-$bg :  #d0dfcb;
-$contentbg :  #f0f6f0;
+@import "vars";
+
+p#title {
+	img {
+		float: left;
+	}
+}
 
 .status {
 	float: left;
@@ -14,20 +18,46 @@ $contentbg :  #f0f6f0;
 	float: left;
 	padding: 10px;
 	display: block;
+	width: 100%;
+	text-align: center;
+	
+	iframe {
+		float: left;
+		width: 97%;
+		min-height: 600px;
+	}
 }
 .stat {
+	width: 45%;
 	float: left;
 	padding: 10px;
 	position: relative;
 	display: block;
 	clear: right;
+	word-wrap:break-word;
+}
+ul#links {
+	width: 100%;
+}
+
+ul#links, ul#edit {
+	padding: 0;
+	list-style: none;
+	position: relative;
+	float: left;
+	display: block;
+	border-top: thin solid $bg;
 	
-	ul#links, ul#edit {
-		padding: 0;
-		list-style: none;
-		position: relative;
-		float: none;
-		display: block;
-		border-top: thin solid $bg;
+	textarea {
+		height: 24px;
+		width: 90%;
+	}
+}
+
+ul#versions {
+	float: left;
+	
+	img {
+		width: 200px;
 	}
 }

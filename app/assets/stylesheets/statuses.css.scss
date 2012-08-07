@@ -1,9 +1,7 @@
 // Place all the styles related to the Statuses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$text : #4e5e4e;
-$bg :  #d0dfcb;
-$contentbg :  #f0f6f0;
+@import "vars";
 
 textarea{
 	height: 100px;

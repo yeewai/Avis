@@ -2,22 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$text : #4e5e4e;
-$bg :  #d0dfcb;
-$contentbg :  #f0f6f0;
-
+@import "vars";
+ul#comics {
+	
+	li {
+		float: left;
+		width: 28%;
+		min-width: 160px;
+		padding: 1%;
+		margin: 1%;
+		margin-bottom: 2%;
+		border: solid thin white;
+	}
+	
+}
+ul#latest_comments {
+	float: left;
+	width: 40%;
+	
+	li {
+		img {
+			max-width: 200px;
+		}
+	}
+}
+ul#latest_files {
+	float: left;
+	width: 40%;
+	li {
+		width: 45%;
+		float: left;
+		margin: 1%;
+		img {
+			max-width: 100%;
+		}
+	}
+}
 ul#categories {
 	clear: both;
+	padding: 1%;
 	li {
 		padding: 5px;
-		margin: 5px;
+		margin: 1%;
 		list-style: none;
 		border: solid thin $text;
 		float: left;
 		background: $bg;
 		display: block;
+		width: 90%;
 	}
-	
 }
 
 p.description {

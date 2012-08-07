@@ -17,29 +17,7 @@ class ProjectsController < ApplicationController
   end
   
   def createComic
-    @comic = Project.create(:name => params[:name], :description => params[:name], :parent_id => 0,
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Notes", 
-        :description => "Feel free to post random files pertaining to the comic here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Scripts", :description => "Scripts for the comic go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Character Designs", 
-        :description => "Designs for characters and costumes go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Storyboards", 
-        :description => "Storyboards and rough rough sketches for the pencils go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")    
-    @comic.categories.create(:name => "Pencils", :description => "Pencils go here.",
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Inks", :description => "Inked pages go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Colours", :description => "Coloured pages go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")
-    @comic.categories.create(:name => "Letters", :description => "Lettered and final pages go here.", 
-        :status => Project::IN_PROGRESS, :variety => "Comic")    
-    
-    
+    @comic = Project.create_comic(params[:name], params[:description])
     redirect_to @comic, :notice => 'Comic was successfully created.'
   end
 

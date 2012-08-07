@@ -1,10 +1,30 @@
 h1 Welcome to AVIS
+p Catalytic Production's project manager
+
+h2 Projects:
 ul#comics
   - @projects.each do |project|
     li
-      = project.name
+      h3 = project.name
       ul#categories
         - project.categories.each do |category|
           li
             =link_to category.name, category
+br{clear="all"}
+ul#latest_comments            
+  h2 Latest Comments
+  - Comment.all(limit: 5).each do |comment|
+    li 
+      = link_to comment.place.name, comment.place
+      p 
+        | Posted by 
+        = comment.user.username
+      p = summarize(comment.content)
 
+ul#latest_files
+  h2 Latest Uploads
+  - Medium.newest.limit(4).each do |medium|
+    li
+      =link_to image_tag(thumbnail(medium)), medium
+
+h2

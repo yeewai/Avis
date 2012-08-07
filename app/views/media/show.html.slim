@@ -2,7 +2,7 @@ p#notice = notice
 =render :template => 'layouts/breadcrumbs'
 
 p#title
-  =image_tag status_image(@item.status), :class => "status"
+  = image_tag status_image(@item.status), :class => "status"
   h1 = @item.name
 p#uploader
   |--Last modified by 
@@ -12,17 +12,19 @@ p#uploader
   
 /Needs form to change status and make this newest version
 .display_file
-  -if (@medium_current.media_content_type =~ /image/) != nil
+  - if (@medium_current.media_content_type =~ /image/) != nil
     =image_tag @medium_current.media.url
+  - elsif (@medium_current.media_content_type =~ /webpage/) != nil
+    iframe src=@medium_current.media_file_name
 .stat
   p
-    strong Media file name:
+    strong Media file name: 
     = @medium_current.media_file_name
   p
-    strong Media content type:
+    strong Media content type: 
     = @medium_current.media_content_type
   p
-    strong Media file size:
+    strong Media file size: 
     = @medium_current.media_file_size
     
   /Links to the images dun werk
@@ -39,32 +41,33 @@ p#uploader
         | [img]
         = @medium_current.media.url
         | [/img]
-  ul#edit
-    li Make this version newest?
-    li 
-      =form_for @medium_current do |f|
-        = f.hidden_field :created_at, :value => Time.now
-        .actions = f.submit 'Renew!'
-    li Status
-    li 
-      =form_for @item do |f|
-        = f.select :status, [['Just uploaded', Item::NOT_READY], 
-            ['Being Edited', Item::EDITING], 
-            ['Edited and Ready', Item::READY],
-            ['Implemented in next step', Item::IMPLEMENTED]]
-        .actions = f.submit 'Change status!'
-    li Rename this item?
-    li 
-      =form_for @item do |f|
-        = f.text_field :name, :placeholder => "Rename this item?"
-        .actions = f.submit 'Rename!'
-    li Upload new Version?
-    li =render :template => 'media/new'
+ul#edit
+  li Make this version newest?
+  li 
+    =form_for @medium_current do |f|
+      = f.hidden_field :created_at, :value => Time.now
+      .actions = f.submit 'Renew!'
+  li Status
+  li 
+    =form_for @item do |f|
+      = f.select :status, [['Just uploaded', Item::NOT_READY], 
+          ['Being Edited', Item::EDITING], 
+          ['Edited and Ready', Item::READY],
+          ['Implemented in next step', Item::IMPLEMENTED]]
+      .actions = f.submit 'Change status!'
+  li Rename this item?
+  li 
+    =form_for @item do |f|
+      = f.text_field :name, :placeholder => "Rename this item?"
+      .actions = f.submit 'Rename!'
+  li Upload new Version?
+  li =render :template => 'media/new'
+  - if @item.media.count > 1
     li 
       |Delete? (It's permanent. No undo-ing)
     li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
-    li = link_to 'Delete all versions', @item, 
-      :confirm => 'Are you SUPER DUPER sure?', :method => :delete
+  li = link_to 'Delete all versions', @item, 
+    :confirm => 'Are you SUPER DUPER sure?', :method => :delete
   
 /List Tasks and task field form???
 #task
@@ -84,7 +87,7 @@ p#uploader
       -@item.media.each do |media|
         -if media.media.url != @medium_current.media.url
           li 
-            = link_to (image_tag media.media.url), media
+            = link_to image_tag(thumbnail(media)), media
             br
             | Version 
             =@versionnum
@@ -92,3 +95,5 @@ p#uploader
             | Modified on 
             = media.created_at
       -@versionnum += 1
+      
+h2

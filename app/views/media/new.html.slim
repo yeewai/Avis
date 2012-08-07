@@ -11,3 +11,20 @@
   = f.hidden_field :user_id, :value => current_user.id
   = f.hidden_field :item_id, :value => @item.id
   .actions = f.submit 'Upload'
+  
+| or link to a webpage
+
+= form_for @medium do |f|
+  - if @medium.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@medium.errors.count, "error")} prohibited this medium from being saved:"
+      ul
+        - @medium.errors.full_messages.each do |message|
+          li = message
+          
+  = f.text_field :media_file_name, :placeholder => 'http://'
+  = f.hidden_field :media_content_type, :value => 'webpage'
+  = f.hidden_field :hide, :value =>false
+  = f.hidden_field :user_id, :value => current_user.id
+  = f.hidden_field :item_id, :value => @item.id
+  .actions = f.submit 'Upload link'

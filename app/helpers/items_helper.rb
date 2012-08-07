@@ -1,7 +1,9 @@
 module ItemsHelper
   def thumbnail(media)
-    if (media.media_content_type =~ /image/) != nil
+    if (media && media.media_content_type =~ /image/) != nil
       media.media.url
+    elsif (media && media.media_content_type =~ /webpage/) != nil
+      "http://img.bitpixels.com/getthumbnail?code=54400&url=#{media.media_file_name}"
     else
       "missing.png"
     end
