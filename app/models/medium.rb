@@ -7,7 +7,7 @@ class Medium < ActiveRecord::Base
   belongs_to :item
   has_many :comments, :as => :place
   
-  scope :newest, order('created_at DESC').where("place_id != #{Project.find_by_name('Admin').id}")
+  scope :newest, order('created_at DESC')
   
   has_attached_file :media
   validates_attachment_presence :media

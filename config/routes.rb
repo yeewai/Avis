@@ -1,7 +1,8 @@
 Avis::Application.routes.draw do
 
-  get "sessions/new"
   get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"  
+  get "chat" => "sessions#chat", :as => "chat"
 
   resources :projects 
   post "projects/createComic"

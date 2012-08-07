@@ -33,6 +33,6 @@ Project.create(:name => 'AVIS', :description => 'Anything pertaining to AVIS. To
 Project.create(:name => 'CP Main Site', :description => 'Anything pertaining to CP\'s main site.', 
       :parent_id => 0,
       :status => Project::IN_PROGRESS, :variety => "Web")
-Project.create(:name => 'Admin', :description => 'Admin work!! =.=  Only admins can access this area, so we can talk bad about the other members all we want. ;) ', 
+Project.create(:name => 'Admin', :description => 'Admin work!! =.=  Only admins can access this area, so we can talk bad about the other members all we want. ;) Except I haven\'t gotten the uploaded file hiding going yet....', 
       :parent_id => 0,
       :status => Project::IN_PROGRESS, :variety => "Admin")
