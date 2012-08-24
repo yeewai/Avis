@@ -9,19 +9,45 @@ html
     - if current_user
       nav
         ul
-          li = link_to "Admin", Project.find_by_name("Admin")
-          li = link_to "Manage Users", new_user_path
-          li = link_to "Add Project", new_project_path
+          li 
+            = link_to image_tag('admin.png'), Project.find_by_name("Admin")
+            = link_to "Admin", Project.find_by_name("Admin")
+          li 
+            = link_to image_tag('users.png'), new_user_path
+            = link_to "Manage Users", new_user_path
+          li 
+            = link_to image_tag('project.png'), new_project_path
+            = link_to "Add Project", new_project_path
         
-          li = link_to "Home", root_path
-          li = link_to "Errors & Suggestions", Project.find_by_name("Avis")
-          li = link_to "!!Ideas", new_user_path
-          li = link_to "Statuses", statuses_path
-          li = link_to "Chatroom", chat_path
-          li = link_to "Resources", Project.find_by_name("Resources")
-          li = link_to "Blog", "http://cp.emihaumut.com/wp-admin/"
-          li = link_to "Settings", edit_user_path(current_user)
-          li = link_to "Logout", logout_path
+          li 
+            = link_to image_tag('home.png'), root_path
+            = link_to "Home", root_path
+          li 
+            = link_to image_tag('error.png'), Project.find_by_name("AVIS")
+            = link_to "Errors & Suggestions", Project.find_by_name("AVIS")
+          li 
+            = link_to image_tag('ideas.png'), new_user_path
+            = link_to "!!Ideas", new_user_path
+          li 
+            = link_to image_tag('status.png'), statuses_path
+            = link_to "Statuses", statuses_path
+          li 
+            = link_to image_tag('chat.png'), chat_path
+            = link_to "Chatroom", chat_path
+          li 
+            = link_to image_tag('resources.png'), Project.find_by_name("Resources")
+            = link_to "Resources", Project.find_by_name("Resources")
+          li 
+            = link_to image_tag('wp.png'), "http://cp.emihaumut.com/wp-admin/"
+            = link_to "Blog", "http://cp.emihaumut.com/wp-admin/"
+          li 
+            = link_to image_tag('settings.png'), edit_user_path(current_user)
+            = link_to "Settings", edit_user_path(current_user)
+          li 
+            = link_to image_tag('logout.png'), logout_path
+            = link_to "Logout", logout_path
     
+    .news
+      | Ohai.
     .content
       = yield

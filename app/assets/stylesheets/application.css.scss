@@ -14,6 +14,8 @@
 
 @import "vars";
 
+$content_width: 72%;
+
 body {
 	text-align:left;
 	font-family: Arial, sans-serif;
@@ -21,8 +23,56 @@ body {
 	background-color: $bg;
 }
 
-.content {
+nav {
+	margin: 0;
+	padding-bottom: 55px;
+	padding-right: (100 - $content_width - 4%)/2;
+	background-color: #4E5E4E;
+	background-image: url("avis.png");
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	color: #F0F6F0;
+	z-index: 0;
+	position: relative;
+	text-align: right;
+	
+	a {
+		color: $contentbg;
+		font-style: italic;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+	}
+	
+	ul {
+		padding: 0;
+		padding-top: 5px;
+		margin: 0;
+		display: inline-table;
+		li {
+			float: left;
+			padding-right: 1px;
+			padding-left: 1px;
+			text-align: center;
+			display: block;
+			width: 75px;
+		}
+	}
+}
+
+.news {
 	width: 72%;
+	margin-top: -40px;
+	position: relative;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 2%;
+	background-color: #f0f6f0;
+	z-index: 100;
+	border: solid thin #FFF;
+}
+
+.content {
+	width: $content_width;
 	position: relative;
 	margin-top: 20px;
 	margin-left:auto;

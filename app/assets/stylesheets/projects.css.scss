@@ -13,6 +13,11 @@ ul#comics {
 		margin: 1%;
 		margin-bottom: 2%;
 		border: solid thin white;
+		background-image: linear-gradient(bottom, rgb(180,197,179) 23%, rgb(240,246,240) 62%);
+		background-image: -o-linear-gradient(bottom, rgb(180,197,179) 23%, rgb(240,246,240) 62%);
+		background-image: -moz-linear-gradient(bottom, rgb(180,197,179) 23%, rgb(240,246,240) 62%);
+		background-image: -webkit-linear-gradient(bottom, rgb(180,197,179) 23%, rgb(240,246,240) 62%);
+		background-image: -ms-linear-gradient(bottom, rgb(180,197,179) 23%, rgb(240,246,240) 62%);
 	}
 	
 }

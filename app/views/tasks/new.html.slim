@@ -10,7 +10,10 @@ h2 Tasks
             =image_tag task_type_image(task.kind)
             em = task.task
             |  --  
-            =link_to task.owner.username, task.owner
+            - if task.owner
+              =link_to task.owner.username, task.owner
+            - else
+              | No user assigned.
           p
             =task.description
           =form_for task do |f|
