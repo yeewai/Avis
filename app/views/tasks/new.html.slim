@@ -7,6 +7,7 @@ h2 Tasks
       li 
         details{class=task_type(task.kind)}
           summary
+            =image_tag task_status(task.state)
             =image_tag task_type_image(task.kind)
             em = task.task
             |  --  
