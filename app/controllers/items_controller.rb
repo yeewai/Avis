@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @project = Project.find(@item.project_id)
     @medium = Medium.new
+    @comment = Comment.new
+    @place = @item
     
     
     if @item.media.count > 0

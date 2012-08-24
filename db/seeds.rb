@@ -27,6 +27,16 @@ User.create(:username => 'emihaumut', :password => 'as', :role => 3)
   :description => "Tutorials/References that don't fit elsewhere", 
   :status => Project::IN_PROGRESS, :variety => "Development")
   
+Project.create(:name => 'Idea Pot', :description => 'What is an idea pot you ask? Why, it\'s a thread full of random ideas thought out by the likes of yourself & co. So if you have an idea you\'d like to throw in here, go ahead and post it. If you see an idea you\'d like to work on, go ahead and help develop it. 
+
+  Okay, time for some rules:
+  Each post contains one idea. (Feel free to make multiple posts if you have multiple ideas).
+  Any ideas you post here will be free for us to use even if you decide to quit the studio later (though I really hope you won\'t).
+  Ideas can be as short or long, as ridiculous or serious as you want.
+  If you see an idea you like and might be interested in working on, go into its development page to comment on it.', 
+      :parent_id => 0,
+      :status => Project::IN_PROGRESS, :variety => "Development")
+  
 Project.create(:name => 'AVIS', :description => 'Anything pertaining to AVIS. Toss errors and suggestions into tasks. :)', 
       :parent_id => 0,
       :status => Project::IN_PROGRESS, :variety => "Web")

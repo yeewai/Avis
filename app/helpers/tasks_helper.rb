@@ -28,13 +28,13 @@ module TasksHelper
   def task_status(status)
     case status
       when Task::TASK_ORPHANED
-        "status-red.png"
+        "status-magenta.png"
       when Task::TASK_REJECTED
         "status-red.png"
       when Task::TASK_STARTED
         "status-amber.png"
       when Task::TASK_ASSIGNED
-        "status-amber.png"
+        "status-purple.png"
       when Task::TASK_FINISHED
         "status-green.png"
       when Task::TASK_ACCEPTED

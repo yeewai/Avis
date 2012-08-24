@@ -26,8 +26,8 @@ html
             = link_to image_tag('error.png'), Project.find_by_name("AVIS")
             = link_to "Errors & Suggestions", Project.find_by_name("AVIS")
           li 
-            = link_to image_tag('ideas.png'), new_user_path
-            = link_to "!!Ideas", new_user_path
+            = link_to image_tag('ideas.png'), Project.find_by_name("Idea Pot")
+            = link_to "Ideas", Project.find_by_name("Idea Pot")
           li 
             = link_to image_tag('status.png'), statuses_path
             = link_to "Statuses", statuses_path

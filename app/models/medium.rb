@@ -1,5 +1,5 @@
 class Medium < ActiveRecord::Base
-  attr_accessible :hide, :item_id, 
+  attr_accessible :hide, :item_id,
     :media_content_type, :media_file_name, :media_file_size, :media,
     :user_id, :created_at
     

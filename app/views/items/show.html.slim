@@ -1,11 +1,19 @@
-/ In theory, this page only shows up if there are no files attached yet. 
-/ So make that happen. Done.
+
 p#notice = notice
 =render :template => 'layouts/breadcrumbs'
 
 p#title
   strong   = @item.name
-p
-  | There's no file in uploaded yet. Please upload one. Kthxbai.
-=render :template => 'media/new'
-
+  
+- if @item.project.name != "Idea Pot"
+  / In theory, this page only shows up if there are no files attached yet. 
+  / So make that happen. Done.
+  p
+    | There's no file in uploaded yet. Please upload one. Kthxbai.
+  =render :template => 'media/new'
+- else
+  p#description = @item.description
+  
+  /List Comments and Comment field form
+  #comment
+    =render :template => 'comments/new'

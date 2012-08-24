@@ -14,11 +14,12 @@ p.description
   /File upload form (only if leaf node???)
   - if @project.categories.count < 1
     =render :template => 'items/new' 
-
-/List Tasks and task field form???
-#task
-  =render :template => 'tasks/new'
-/List Comments and Comment field form
-#comment
-  =render :template => 'comments/new'
-h2 
+    
+- if @project.name != "Idea Pot" 
+  /List Tasks and task field form???
+  #task
+    =render :template => 'tasks/new'
+  /List Comments and Comment field form
+  #comment
+    =render :template => 'comments/new'
+  h2 
