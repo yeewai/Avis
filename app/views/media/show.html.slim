@@ -16,6 +16,10 @@ p#uploader
     =image_tag @medium_current.media.url
   - elsif (@medium_current.media_content_type =~ /webpage/) != nil
     iframe src=@medium_current.media_file_name
+.file_description
+  - if @item.description
+    h3 Description: 
+    = raw @item.description.bbcode_to_html
 .stat
   p
     strong Media file name: 
