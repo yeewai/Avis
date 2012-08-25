@@ -21,7 +21,7 @@ ul#comics {
 	}
 	
 }
-ul#latest_comments {
+ul.latest_comments {
 	float: left;
 	width: 40%;
 	
@@ -32,7 +32,7 @@ ul#latest_comments {
 		}
 	}
 }
-ul#latest_files {
+ul.latest_files {
 	float: left;
 	width: 40%;
 	li {

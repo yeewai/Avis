@@ -11,8 +11,8 @@ ul#comics
           li
             =link_to category.name, category
 br{clear="all"}
-ul#latest_comments            
-  h2 Latest Comments
+ul.latest_comments            
+  h2 = link_to "Latest Comments", comments_path
   - Comment.newest(limit: 4).each do |comment|
     li 
       = link_to comment.place.name, comment.place
@@ -25,10 +25,12 @@ ul#latest_comments
       p
         = comment.content
 
-ul#latest_files
-  h2 Latest Uploads
+ul.latest_files
+  h2 = link_to "Latest Uploads", media_path
   - Medium.newest.limit(4).each do |medium|
     li
+      =link_to medium.name, medium
+      br
       =link_to image_tag(thumbnail(medium)), medium
 
 h2

@@ -81,7 +81,7 @@ br{clear='all'}
 .module
   b Latest Uploads
   ul#user_media
-    -@user.media.last(4).each do |medium|
+    -@user.media.newest.limit(4).each do |medium|
       li 
         =link_to medium.item.name, medium
         =link_to (image_tag thumbnail(medium)), medium

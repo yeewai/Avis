@@ -8,6 +8,8 @@ class Item < ActiveRecord::Base
   
   validates_presence_of :name
   
+  scope :not_admin, where("project_id != #{Project.find_by_name('Admin').id}")
+  
   #Item Statuses
    NOT_READY    = 0
    EDITING      = 1

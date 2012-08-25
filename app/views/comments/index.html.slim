@@ -1,23 +1,15 @@
 h1 Listing comments
-
-table
-  tr
-    th User
-    th Content
-    th Place
-    th
-    th
-    th
-
-  - @comments.each do |comment|
-    tr
-      td = comment.user_id
-      td = comment.content
-      td = comment.place_id
-      td = link_to 'Show', comment
-      td = link_to 'Edit', edit_comment_path(comment)
-      td = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Comment', new_comment_path
+ul#comments
+  -Comment.newest.each do |comment|
+    -if !comment.user_id.nil? 
+      li 
+        p = link_to comment.place.name, comment.place
+        =image_tag comment.user.avatar.url, :class => 'avi'
+        h3 =link_to comment.user.username, comment.user
+        |  said 
+        p.date
+          | on 
+          =comment.created_at 
+        p
+          = raw comment.content.bbcode_to_html
+          

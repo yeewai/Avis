@@ -1,6 +1,6 @@
 =render :template => "users/new"
 h1 Listing users
-table
+table#users
   tr
     th
     th Username
@@ -14,15 +14,23 @@ table
     th
 
   -@users.each do |user|
-    tr
-      td = image_tag user.avatar.url
-      td = user.username
-      td = translate_role user.role 
+    tr{class=translate_role(user.role) }
+      td#avi = image_tag user.avatar.url
+      td 
+        = link_to user.username, user
+        br
+        = translate_role user.role 
       td = user.email 
       td = user.name 
       td = user.position 
       td = user.contact
-      td = link_to 'Show', user
-      td = link_to 'Edit', edit_user_path(user) 
-      td = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' } 
+      td 
+         =form_for user do |f|
+            = f.select :role, [['Admin', User::ROLE_ADMIN], 
+                ['Regular', User::ROLE_REGULAR], 
+                ['Retired', User::ROLE_RETIRED],
+                ['Banned', User::ROLE_BANNED],
+                ['Pendin', User::ROLE_PENDING]]
+            .actions = f.submit 'Change Role!'
+      td = link_to 'Edit their settings', edit_user_path(user) 
 

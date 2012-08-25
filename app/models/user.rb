@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   :position, :quote, :residence, :role, :status, :theme, :username, :website, :zodiac, 
   :password, :password_confirmation, :avatar #does not even need status. Please remove
   
+  default_scope :order => "role DESC"
+  
   #Password Stuffs
   has_secure_password
   

@@ -61,3 +61,19 @@ ul#versions {
 		width: 200px;
 	}
 }
+
+
+
+/* Index */
+ul.all_files {
+	float: left;
+	width: 100%;
+	li {
+		width: 20%;
+		float: left;
+		margin: 1%;
+		img {
+			max-width: 100%;
+		}
+	}
+}

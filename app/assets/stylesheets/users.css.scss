@@ -37,3 +37,46 @@ img.avi {
 	
 	
 }
+
+table#users {
+	img {
+		width: 50px;
+		height: auto;
+	}
+	
+	tr {
+		border-bottom: solid thin $text;
+		
+
+		td {
+			padding-right: 6px;
+			padding-left: 6px;
+		}
+
+		td#avi {
+			padding-left: 0;
+		}
+	}
+	
+	tr.Admin {
+		background-color: $admin_yellow;
+	}
+	
+	tr.Regular{
+		&:nth-child(odd) {
+			background-color: $bg;
+		}
+		
+		&:nth-child(even) {
+			background-color: $bg_dark;
+		}
+		
+	}
+	tr.Retired{
+		background-color: $retired_blue;
+		
+	}
+	tr.Banned{
+		background-color: $banned_red;
+	}
+}
