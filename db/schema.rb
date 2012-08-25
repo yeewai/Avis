@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824061829) do
+ActiveRecord::Schema.define(:version => 20120825150208) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(:version => 20120824061829) do
     t.integer  "kind"
     t.integer  "owner_id"
     t.integer  "project_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "description"
     t.string   "project_type"
-    t.string   "user_id"
+    t.integer  "user_id",      :limit => 255
   end
 
   create_table "users", :force => true do |t|
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120824061829) do
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
+    t.integer  "user_id"
   end
 
 end
