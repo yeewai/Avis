@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   default_scope :order => "role DESC"
   
+  
   #Password Stuffs
   has_secure_password
   
@@ -40,4 +41,5 @@ class User < ActiveRecord::Base
   ROLE_ADMIN    = 3
   ROLE_PENDING  = 4
   
+  scope :current, where(role: [ROLE_REGULAR, ROLE_ADMIN])
 end

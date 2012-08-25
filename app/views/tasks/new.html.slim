@@ -42,7 +42,19 @@ h2 Tasks
       
 h3 New task
 .tooltip
-  |Task making info goes here
+  details
+    summary
+      strong How do I make a task????
+    p
+      | Obviously you should start by filling out the summary and details/description. The states get more complicated though. 
+      ul.explain
+        li Orphaned state: The task has not been assigned to anyone to work on yet and anyone can assign themselves to it. 
+        li Assigned state: The task has been assigned, but not yet started
+        li Started state: Self explanatory
+        li Finished state: The task has been completed, but has not been reviewed by anyone yet
+        li Accepted state: Someone else has looked over the task and deemed it acceptable. 
+        li Rejected state: Someone else has looked over the task and deemed it unsatisfactory. Time to start over. 
+      strong Do not accept your tasks assigned to you!
 = form_for @task do |f|
   - if @task.errors.any?
     #error_explanation
@@ -75,7 +87,7 @@ h3 New task
         ['Error', Task::TASK_ERROR],
         ['Suggestion', Task::TASK_SUGGESTION]]
   .field
-    = f.label :owner_id
-    = f.collection_select :owner_id, User.all, :id, :username, :include_blank => true
+    | Assigned to: 
+    = f.collection_select :owner_id, User.current, :id, :username, :include_blank => true
 
   .actions = f.submit 'Make new Task'

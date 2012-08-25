@@ -20,6 +20,8 @@ class Task < ActiveRecord::Base
   
   attr_accessible :description, :kind, :owner_id, :project_id, :project_type, 
     :state, :task, :user_id
+    
+  default_scope :order => "state ASC"
   
   belongs_to :project, :polymorphic => true
   belongs_to :user

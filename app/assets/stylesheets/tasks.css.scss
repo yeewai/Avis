@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "vars";
-
+ul.explain {
+	list-style: circle;
+	padding-left: 35px;
+}
 ul#tasks {
 	list-style: none;
 	padding-left: 0;
