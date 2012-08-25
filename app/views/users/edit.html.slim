@@ -12,9 +12,11 @@ h1 Editing user
             li = msg 
             
   .field
+    =image_tag @user.avatar.url, :class => 'avi'
     = f.label :avatar
     br
     = f.file_field :avatar
+    br{clear="all"}
   .field
     = f.label :username
     br
@@ -30,11 +32,11 @@ h1 Editing user
   .field
     = f.label :contact
     br
-    = f.text_field :contact, :placeholder => "Contact"
+    = f.text_field :contact, :placeholder => "Alternate way to contact you"
   .field
     = f.label :gmt
     br
-    = f.number_field :gmt
+    = f.number_field :gmt, :placeholder => "Timezone"
   hr
   em The rest are optional and what shows up on the main website. (Or will when I get around to implementing that).
   .field
@@ -75,7 +77,3 @@ h1 Editing user
     = f.text_area :quote, :placeholder => "Ohai thar."
   .actions
     = f.submit
-
-
-= link_to 'Show', @user 
-= link_to 'Back', users_path 

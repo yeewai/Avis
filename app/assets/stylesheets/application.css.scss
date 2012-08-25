@@ -70,6 +70,28 @@ nav {
 	background-color: #f0f6f0;
 	z-index: 100;
 	border: solid thin #FFF;
+	
+	.red {
+		color: red;
+		font-size: 24px;
+	}
+	
+	ul {
+		list-style: disc;
+		clear: all;
+	}
+	
+	p {
+		clear: all;
+	}
+	
+	ul#user_stats {
+		list-style: none;
+		>li {
+			float: left;
+			padding: 10px;
+		}
+	}
 }
 
 .content {

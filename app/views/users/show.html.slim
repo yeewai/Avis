@@ -20,7 +20,7 @@ br{clear='all'}
 
 .module
   b Latest Tasks
-  - if @user.tasks.count < 1
+  - if @user.taskstodo.count < 1
     | There are no tasks.
   - else
     ul#tasks

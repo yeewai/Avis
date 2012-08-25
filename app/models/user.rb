@@ -26,8 +26,11 @@ class User < ActiveRecord::Base
   validates_presence_of :username;
   has_many :comments
   has_many :tasks
+  has_many :taskstodo, :class_name => Task, :foreign_key => :owner_id
   has_many :statuses
   has_many :media
+  
+  
   
   #avatar stuffs
   has_attached_file :avatar
