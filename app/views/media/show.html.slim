@@ -66,12 +66,12 @@ ul#edit
       .actions = f.submit 'Rename!'
   li Upload new Version?
   li =render :template => 'media/new'
-  - if @item.media.count > 1
-    li 
-      |Delete? (It's permanent. No undo-ing)
-    li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
-  li = link_to 'Delete all versions', @item, 
-    :confirm => 'Are you SUPER DUPER sure?', :method => :delete
+  / - if @item.media.count > 1
+  /     li 
+  /       |Delete? (It's permanent. No undo-ing)
+  /     li = link_to 'Delete this version', @medium_current, :confirm => 'Are you sure?', :method => :delete
+  /   li = link_to 'Delete all versions', @item, 
+  /     :confirm => 'Are you SUPER DUPER sure?', :method => :delete
   
 /List Tasks and task field form???
 #task

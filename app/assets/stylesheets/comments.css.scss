@@ -9,12 +9,6 @@ ul#comments {
 		width: 100%;
 		min-height: 120px;
 		
-		img.avi {
-			float: left;
-			max-height: 200px;
-			max-width: 100px;
-			margin-right: 10px
-		}
 		
 		h3 {
 				display: inline;
@@ -31,4 +25,11 @@ ul#comments {
 			}
 		}
 	}
+}
+
+img.avi {
+	float: left;
+	max-height: 200px;
+	max-width: 100px;
+	margin-right: 10px
 }
