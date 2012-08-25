@@ -48,7 +48,7 @@ html
             = link_to "Logout", logout_path
     
     .news
-      - if current_user.email.length < 3
+      - if !current_user.email || current_user.email.length < 3
         span.red Update yo email!
         | Click on settings!
       .user_stats 
