@@ -15,7 +15,7 @@ p.description
   - if @project.categories.count < 1
     =render :template => 'items/new' 
     
-- if @project.name != "Idea Pot" 
+- if !@isIdeaPot
   /List Tasks and task field form???
   #task
     =render :template => 'tasks/new'

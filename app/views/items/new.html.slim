@@ -10,7 +10,11 @@ h2 Files
         =link_to item.name, item
         =link_to (image_tag thumbnail(item.media.last)), item
         
-h3 New file
+- if @isIdeaPot
+  h3 New Idea
+- else
+  h3 New file
+  
 = form_for @item do |f|
   - if @item.errors.any?
     #error_explanation
@@ -19,11 +23,18 @@ h3 New file
         - @item.errors.full_messages.each do |message|
           li = message
 
-  = f.text_field :name, :placeholder => "Name of file"
+  - if @isIdeaPot
+    = f.text_field :name, :placeholder => "Title of Idea"
+  - else
+    = f.text_field :name, :placeholder => "Name of file"
   br
   = f.text_area :description, :placeholder => "Description~"
   = f.hidden_field :hide, :value =>false
   = f.hidden_field :status, :value =>0
   = f.hidden_field :project_id, :value => @project.id
-  .actions = f.submit 'Submit and then attach a file'
+  
+  - if @isIdeaPot
+    .actions = f.submit 'Submit Idea!'
+  - else  
+    .actions = f.submit 'Submit and then attach a file'
 

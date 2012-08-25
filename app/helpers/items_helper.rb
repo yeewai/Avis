@@ -4,6 +4,8 @@ module ItemsHelper
       media.media.url
     elsif (media && media.media_content_type =~ /webpage/) != nil
       "http://img.bitpixels.com/getthumbnail?code=54400&url=#{media.media_file_name}"
+    elsif @isIdeaPot
+      "idea.png"
     else
       "missing.png"
     end

@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
     @item = Item.new
     @task = Task.new
     @taskplace = @project
+    
+    @isIdeaPot = (@project.name == "Idea Pot")
     #@file = File.new
   end
   
