@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by_username(params[:username])
-    if user && user.authenticate(params[:password] && user.role != User::ROLE_BANNED)
+    if user && user.authenticate(params[:password] ) 
       if (params[:remember] == "true")
         cookies.permanent[:user_token] = {:value => user.token}
       else
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       end
       redirect_to projects_path, :notice => "Logged in!"
     else
-      if user.role != User::ROLE_BANNED
+      if user && user.role == User::ROLE_BANNED
         flash.now.alert = "Your account has been banned (probably due to inactivity)! email catalyticproductions@gmail.com to unban your account."
       else
         flash.now.alert = "Invalid email or password"
