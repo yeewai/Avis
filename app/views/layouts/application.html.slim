@@ -47,46 +47,47 @@ html
             = link_to image_tag('logout.png'), logout_path
             = link_to "Logout", logout_path
     
-    .news
-      - if !current_user.email || current_user.email.length < 3
-        span.red Update yo email!
-        | Click on settings!
-      .user_stats 
-        h3 Your Stats: 
-        ul#user_stats
-          li 
-            = "Tasks: #{current_user.taskstodo.count}" 
-            ul
-              li = "Tasks Not Yet Started: #{current_user.taskstodo.where(state: Task::TASK_ASSIGNED).count}"
-              li = "Tasks Started: #{current_user.taskstodo.where(state: Task::TASK_STARTED).count}"
-              li = "Tasks Finished: #{current_user.taskstodo.where(state: Task::TASK_FINISHED).count}"
-              li = "Tasks Rejected: #{current_user.taskstodo.where(state: Task::TASK_REJECTED).count}"
-              li = "Tasks Accepted: #{current_user.taskstodo.where(state: Task::TASK_ACCEPTED).count}"
-          li = "Files Uploaded: #{current_user.media.count}"
-          li = "Status Updates Made: #{current_user.statuses.count}"
-          li = "Comments Made: #{current_user.comments.count}"
-      br{clear="all"}
-      p
-        b Notes on uploading:
-        ul
-          li
-            | You're free to upload as many files as you want. You can access the older versions by going to the file and scrolling to the bottom to see other versions. 
-            strong Files can not be removed, so be careful
-          li
-            | If you want to upload text, the best thing to do atm (before I can get Google docs going) is to 
-            b upload to Google docs yourself, and paste the share link into the new file area. 
-            | Also, don't forget to set sharing to anyone with the link. Sorry 'bout the hassle. 
-          li
-            | When uploading
-            b images
-            | upload your highest resolution version. I resize everything anyways when displaying on the site. Also, 
-          li
-            | Last thing, if you run into any sort of 
-            b error or problem, REPORT IT! 
-            | I'll try to fix it as soon as possible.
-          li
-            strong BBCode now supported.
-            | So you can use all the tags you've been using on gaia.
-        br
+      .news
+        - if !current_user.email || current_user.email.length < 3
+          span.red Update yo email!
+          | Click on settings!
+        .user_stats 
+          h3 Your Stats: 
+          ul#user_stats
+            li 
+              = "Tasks: #{current_user.taskstodo.count}" 
+              ul
+                li = "Tasks Not Yet Started: #{current_user.taskstodo.where(state: Task::TASK_ASSIGNED).count}"
+                li = "Tasks Started: #{current_user.taskstodo.where(state: Task::TASK_STARTED).count}"
+                li = "Tasks Finished: #{current_user.taskstodo.where(state: Task::TASK_FINISHED).count}"
+                li = "Tasks Rejected: #{current_user.taskstodo.where(state: Task::TASK_REJECTED).count}"
+                li = "Tasks Accepted: #{current_user.taskstodo.where(state: Task::TASK_ACCEPTED).count}"
+            li = "Files Uploaded: #{current_user.media.count}"
+            li = "Status Updates Made: #{current_user.statuses.count}"
+            li = "Comments Made: #{current_user.comments.count}"
+        br{clear="all"}
+        p
+          b Notes on uploading:
+          ul
+            li
+              | You're free to upload as many files as you want. You can access the older versions by going to the file and scrolling to the bottom to see other versions. 
+              strong Files can not be removed, so be careful
+            li
+              | If you want to upload text, the best thing to do atm (before I can get Google docs going) is to 
+              b upload to Google docs yourself, and paste the share link into the new file area. 
+              | Also, don't forget to set sharing to anyone with the link. Sorry 'bout the hassle. 
+            li
+              | When uploading
+              b images
+              | upload your highest resolution version. I resize everything anyways when displaying on the site. Also, 
+            li
+              | Last thing, if you run into any sort of 
+              b error or problem, REPORT IT! 
+              | I'll try to fix it as soon as possible.
+            li
+              strong BBCode now supported.
+              | So you can use all the tags you've been using on gaia.
+          br
+          
     .content
       = yield
