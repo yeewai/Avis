@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # Their profile info will be displayed on the main site. 
   #
   # Admin users (chanted and I) are the only ones able to add/demote/promote users
-  # Role: 0-banned, 1-retired, 2-regular, 3-admin
   attr_accessible :bio, :birthday, :colour, :contact, :email, :gmt, :name, :notify, 
   :position, :quote, :residence, :role, :status, :theme, :username, :website, :zodiac, 
   :password, :password_confirmation, :avatar #does not even need status. Please remove

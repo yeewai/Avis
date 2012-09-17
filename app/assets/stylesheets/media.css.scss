@@ -58,6 +58,11 @@ ul#links, ul#edit {
 		height: 24px;
 		width: 90%;
 	}
+	
+	li.title {
+		font-weight: bold;
+		padding-top: 3px;
+	}
 }
 
 ul#versions {

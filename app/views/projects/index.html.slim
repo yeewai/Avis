@@ -17,6 +17,7 @@ ul.latest_comments
     li 
       = link_to comment.place.name, comment.place
       = image_tag comment.user.avatar.url, :class => 'avi'
+      br
       h3 =link_to comment.user.username, comment.user
       |  said 
       p.date

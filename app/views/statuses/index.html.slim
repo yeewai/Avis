@@ -13,7 +13,7 @@ ul#statuses
           | No status has been updated yet. :(
         -else
           h4 This past week I have 
-          = user.statuses.last.past
+          = raw user.statuses.last.past.bbcode_to_html
           -if !user.statuses.last.hiatus
             h4 Next week I will
           -else 
@@ -21,6 +21,6 @@ ul#statuses
               | I am on hiatus until 
               = user.statuses.last.start_late_notice
               |  because
-          = user.statuses.last.future
+              = raw user.statuses.last.future.bbcode_to_html
 
 h2

@@ -1,6 +1,6 @@
 @import "vars";
 
-ul#comments {
+ul#comments, ul.latest_comments {
 	padding-left: 15px;
 	li {
 		border: solid thin $bg;

@@ -31,7 +31,7 @@ ul#statuses {
 		margin-right: 10px;
 	}
 	
-	li {
+	>li {
 		float: left;
 		width: 46%;
 		min-height: 100px;
@@ -42,6 +42,9 @@ ul#statuses {
 		-webkit-box-shadow: 4px 4px 7px 2px rgba(0, 0, 0, .15);
 		box-shadow: 4px 4px 7px 2px rgba(0, 0, 0, .15);
 		
+		ul {
+			list-style: disc;
+		}
 		
 		&#none {
 			background-color: #c2cad5;

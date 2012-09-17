@@ -46,12 +46,12 @@ p#uploader
         = @medium_current.media.url
         | [/img]
 ul#edit
-  li Make this version newest?
+  li.title Make this version newest?
   li 
     =form_for @medium_current do |f|
       = f.hidden_field :created_at, :value => Time.now
       .actions = f.submit 'Renew!'
-  li Status
+  li.title Status
   li 
     =form_for @item do |f|
       = f.select :status, [['Just uploaded', Item::NOT_READY], 
@@ -59,12 +59,12 @@ ul#edit
           ['Edited and Ready', Item::READY],
           ['Implemented in next step', Item::IMPLEMENTED]]
       .actions = f.submit 'Change status!'
-  li Rename this item?
+  li.title Rename this item?
   li 
     =form_for @item do |f|
       = f.text_field :name, :placeholder => "Rename this item?"
       .actions = f.submit 'Rename!'
-  li Upload new Version?
+  li.title Upload new Version?
   li =render :template => 'media/new'
   / - if @item.media.count > 1
   /     li 
