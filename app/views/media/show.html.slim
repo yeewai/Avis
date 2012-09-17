@@ -34,17 +34,21 @@ p#uploader
   /Links to the images dun werk
   ul#links
     li Direct 
-    li 
-      textarea = @medium_current.media.url
+    li
+      - if (@medium_current.media_content_type =~ /image/) != nil
+        textarea = @medium_current.media_file_name
+      - else
+        textarea = @medium_current.media.url
     li This page 
     li 
       textarea = request.url
-    li BB Code 
-    li 
-      textarea 
-        | [img]
-        = @medium_current.media.url
-        | [/img]
+    - if (@medium_current.media_content_type =~ /image/) != nil
+      li BB Code 
+      li 
+        textarea 
+          | [img]
+          = @medium_current.media.url
+          | [/img]
 ul#edit
   li.title Make this version newest?
   li 
