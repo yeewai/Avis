@@ -14,11 +14,7 @@
     = f.text_area :description
   .field
     = f.label :status
-    = f.number_field :status
-  .field
-    = f.label :variety
-    = f.text_field :variety
-  .field
-    = f.label :parent_id
-    = f.number_field :parent_id
+    = f.select :status, [['In Progress', Project::IN_PROGRESS], 
+        ['Hiatus', Project::HIATUS], 
+        ['Completed', Project::COMPLETED]]
   .actions = f.submit 'Save'

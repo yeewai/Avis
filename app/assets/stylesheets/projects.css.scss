@@ -72,3 +72,17 @@ p.description {
 	padding: 2%;
 	float: left;
 }
+
+table#projects_admin {
+	td:last-child {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	tr:nth-child(odd) {
+		background-color: $bg;
+	}
+	
+	th:nth-child(2) {
+		min-width: 150px;
+	}
+}

@@ -15,9 +15,11 @@ class Project < ActiveRecord::Base
   
   belongs_to :parent, :class_name => "Project"
   
+  scope :comics, where(:parent_id => 0, :variety => 'Comic')
+  
   #Project Statuses
-  IN_PROGRESS = 0
-  HIATUS = 1
+  HIATUS = 0
+  IN_PROGRESS = 1
   COMPLETED  = 2
   
   def self.create_comic(name, desc)

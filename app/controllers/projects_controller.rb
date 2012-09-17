@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :authorize_admin, :only => "new"
   
   def index
-    @projects = Project.where(:parent_id => 0, :variety => 'Comic')
+    @projects = Project.comics
   end
 
   def show
@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @projects = Project.comics
   end
 
   def edit

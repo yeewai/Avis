@@ -9,3 +9,17 @@ h1 New project
 
 
 = link_to 'Back', projects_path
+
+
+table#projects_admin
+  tr
+    th 
+    th Name
+    th Description
+    th
+  - @projects.each do |project|
+    tr
+      td = image_tag status_image(project.status)
+      td = project.name
+      td = project.description
+      td = link_to 'Edit', edit_project_path(project)
