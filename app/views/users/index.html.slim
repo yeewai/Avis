@@ -29,7 +29,7 @@ table#users
                 ['Regular', User::ROLE_REGULAR], 
                 ['Retired', User::ROLE_RETIRED],
                 ['Banned', User::ROLE_BANNED],
-                ['Pendin', User::ROLE_PENDING]]
+                ['Pending', User::ROLE_PENDING]]
             .actions = f.submit 'Change Role!'
       td = link_to 'Edit their settings', edit_user_path(user) 
 
