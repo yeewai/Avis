@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(:username => 'emihaumut', :password => 'as', :role => 3)
 #Resources
 @comic = Project.create(:name => 'Resources', :description => 'Links and files of tutorials or just plain old good references', 
       :parent_id => 0,
