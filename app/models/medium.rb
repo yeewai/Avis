@@ -18,7 +18,7 @@ class Medium < ActiveRecord::Base
        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
      }
   else
-    {}   
+     {}  
   end
     
   has_attached_file :media, options
