@@ -14,8 +14,12 @@ p#uploader
 .display_file
   - if (@medium_current.media_content_type =~ /image/) != nil
     =image_tag @medium_current.media.url
+    p = link_to "Download this file!", @medium_current.media.url
   - elsif (@medium_current.media_content_type =~ /webpage/) != nil
     iframe src=@medium_current.media_file_name
+    p = link_to "Download this file!", @medium_current.media_file_name
+  - else 
+    p = link_to "Download this file!", @medium_current.media.url
 .file_description
   - if @item.description
     h3 Description: 
