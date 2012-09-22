@@ -1,19 +1,21 @@
 h2 Comments
+.footnote Quoting only takes the content of the outermost comment.
 - if @place.comments.count < 1
   | There are no comments in here. :(
 - else
   ul#comments
     -@place.comments.each do |comment|
       -if !comment.user_id.nil? 
-        li 
+        li{id=comment.id}
           =image_tag comment.user.avatar.url, :class => 'avi'
-          h3 =link_to comment.user.username, comment.user
+          h3.user =link_to comment.user.username, comment.user
           |  said 
           p.date
             | on 
             =comment.created_at 
-          p
+          .text
             = raw comment.content.bbcode_to_html
+          = link_to "Quote", "#comment_content", class: "quote_button"
 h3 New comment
 
 = form_for @comment do |f|
@@ -28,4 +30,4 @@ h3 New comment
   = f.hidden_field :user_id, :value => current_user.id
   = f.hidden_field :place_id, :value => @place.id
   = f.hidden_field :place_type, :value => @place.class.name
-  .actions = f.submit 'Save'
+  .actions = f.submit 'Post'

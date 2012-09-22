@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     if @task.owner_id.nil? 
       @task.state = Task::TASK_ORPHANED
-    else
+    elsif @task.state == Task::TASK_ORPHANED
       @task.state = Task::TASK_ASSIGNED
     end
       

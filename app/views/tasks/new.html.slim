@@ -30,7 +30,6 @@ h2 Tasks
               = f.label :kind
               = f.select :kind, 
                 [['Task', Task::TASK_TASK], 
-                  ['Chore', Task::TASK_CHORE],
                   ['Error', Task::TASK_ERROR],
                   ['Suggestion', Task::TASK_SUGGESTION]]
             .field
