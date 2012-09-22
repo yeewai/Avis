@@ -9,15 +9,16 @@ html
     - if current_user
       nav
         ul
-          li 
-            = link_to image_tag('admin.png'), Project.find_by_name("Admin")
-            = link_to "Admin", Project.find_by_name("Admin")
-          li 
-            = link_to image_tag('users.png'), users_path
-            = link_to "Manage Users", users_path
-          li 
-            = link_to image_tag('project.png'), new_project_path
-            = link_to "Add Project", new_project_path
+          -if current_user.role == User::ROLE_ADMIN
+            li 
+              = link_to image_tag('admin.png'), Project.find_by_name("Admin")
+              = link_to "Admin", Project.find_by_name("Admin")
+            li 
+              = link_to image_tag('users.png'), users_path
+              = link_to "Manage Users", users_path
+            li 
+              = link_to image_tag('project.png'), new_project_path
+              = link_to "Add Project", new_project_path
         
           li 
             = link_to image_tag('home.png'), root_path
@@ -37,9 +38,6 @@ html
           li 
             = link_to image_tag('resources.png'), Project.find_by_name("Resources")
             = link_to "Resources", Project.find_by_name("Resources")
-          li 
-            = link_to image_tag('wp.png'), "http://cp.emihaumut.com/wp-admin/"
-            = link_to "Blog", "http://cp.emihaumut.com/wp-admin/"
           li 
             = link_to image_tag('settings.png'), edit_user_path(current_user)
             = link_to "Settings", edit_user_path(current_user)
