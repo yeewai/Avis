@@ -24,7 +24,7 @@ br{clear='all'}
     | There are no tasks.
   - else
     ul#tasks
-      -@user.tasks.where("project_id != #{Project.find_by_name('Admin').id}").each do |task|
+      -@user.taskstodo.where("project_id != #{Project.find_by_name('Admin').id}").each do |task|
         li 
           details{class=task_type(task.kind)}
             summary
