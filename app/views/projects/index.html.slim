@@ -13,7 +13,7 @@ ul#comics
 br{clear="all"}
 ul.latest_comments            
   h2 = link_to "Latest Comments", comments_path
-  - Comment.newest(limit: 4).each do |comment|
+  - Comment.newest.limit(4).each do |comment|
     li 
       = link_to comment.place.name, comment.place
       = image_tag comment.user.avatar.url, :class => 'avi'
