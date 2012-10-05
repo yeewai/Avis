@@ -1,7 +1,8 @@
 class Item < ActiveRecord::Base
-  attr_accessible :hide, :name, :project_id, :status, :description
+  attr_accessible :hide, :name, :project_id, :status, :description, :user_id
   
   belongs_to :project
+  belongs_to :user
   has_many :media
   has_many :tasks, :as => :project
   has_many :comments, :as => :place

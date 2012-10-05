@@ -12,6 +12,9 @@ p#title
     | There's no file in uploaded yet. Please upload one. Kthxbai.
   =render :template => 'media/new'
 - else
+  p 
+    | by 
+    em = @item.user.username
   p#description = @item.description
   
   /List Comments and Comment field form

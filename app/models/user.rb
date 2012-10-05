@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :taskstodo, :class_name => Task, :foreign_key => :owner_id
   has_many :statuses
   has_many :media
+  has_many :item
   
   
   

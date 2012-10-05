@@ -31,6 +31,7 @@ h2 Files
   = f.text_area :description, :placeholder => "Description~"
   = f.hidden_field :hide, :value =>false
   = f.hidden_field :status, :value =>0
+  = f.hidden_field :user_id, :value => current_user.id
   = f.hidden_field :project_id, :value => @project.id
   
   - if @isIdeaPot
