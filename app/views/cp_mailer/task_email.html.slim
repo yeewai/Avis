@@ -12,7 +12,7 @@ html
       }
     h2 You have a new task on AVIS!
     p
-      ="Hey #{@task.user.username}, #{@task.user.username} just created the following task for you on "
+      ="Hey #{@task.owner.username}, #{@task.user.username} just created the following task for you on "
       =link_to "AVIS", CPMailer::BASE_URL + url_for(@task.project)
       |  for 
       =link_to @task.project.name, CPMailer::BASE_URL + url_for(@task.project)
