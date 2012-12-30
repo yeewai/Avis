@@ -41,6 +41,7 @@ class TasksController < ApplicationController
       
     respond_to do |format|
       if @task.save
+        CPMailer.task_email(@task).deliver
         format.html { redirect_to @task.project, :notice => 'Task was successfully created.' }
         format.json { render :json => @task, :status => :created, :location => @task }
       else

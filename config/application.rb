@@ -60,6 +60,14 @@ module Avis
     config.assets.version = '1.0'
     
     #Global Variables
-    
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address          => "smtp.gmail.com",
+      :port             => "587",
+      :domain           => "domain.com",
+      :authentication   => :plain,
+      :user_name        => ENV['AVIS_CP_USER'],
+      :password         => ENV['AVIS_CP_PASS']
+    }
   end
 end
