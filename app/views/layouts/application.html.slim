@@ -53,7 +53,7 @@ html
           h3 Your Stats: 
           ul#user_stats
             li 
-              = "Tasks: #{current_user.taskstodo.count}" 
+              = link_to "Tasks: #{current_user.taskstodo.count}", current_user
               ul
                 li = "Tasks Not Yet Started: #{current_user.taskstodo.where(state: Task::TASK_ASSIGNED).count}"
                 li = "Tasks Started: #{current_user.taskstodo.where(state: Task::TASK_STARTED).count}"

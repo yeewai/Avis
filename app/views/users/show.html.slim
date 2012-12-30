@@ -18,7 +18,7 @@
 
 br{clear='all'}   
 
-.module
+.module#tasks
   b Latest Tasks
   - if @user.taskstodo.count < 1
     | There are no tasks.
@@ -28,6 +28,7 @@ br{clear='all'}
         li 
           details{class=task_type(task.kind)}
             summary
+              =image_tag task_status(task.state)
               =image_tag task_type_image(task.kind)
               em = task.task
               |  --  
