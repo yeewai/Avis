@@ -1,2 +1,10 @@
 #chat
-  iframe src="http://cp.emihaumut.com/avis/ajax-chat/index.php"
+  =form_tag "http://cp.emihaumut.com/avis/ajax-chat/index.php", :method => "post", :target=>"my_iframe", :name=>"load_chat", :id=>"load_chat" do
+    =hidden_field_tag(:AVIS_USER, current_user.username)
+    =hidden_field_tag(:AVIS_USER_ID, current_user.id)
+    /=submit_tag("Reload Chatroom!")
+  iframe name="my_iframe"
+  
+  
+javascript:
+  document.getElementById('load_chat').submit();
