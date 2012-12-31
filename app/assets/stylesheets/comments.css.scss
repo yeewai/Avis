@@ -2,13 +2,16 @@
 
 ul#comments, ul.latest_comments {
 	padding-left: 15px;
-	li {
+	>li {
 		border: solid thin $bg;
 		list-style: none;
 		padding: 5px;
 		width: 100%;
 		min-height: 120px;
 		
+		li {
+		  list-style: disc;
+		}
 		
 		h3 {
 				display: inline;
