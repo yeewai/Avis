@@ -30,7 +30,11 @@ class User < ActiveRecord::Base
   has_many :media
   has_many :item
   
-  
+  #Status Updates
+  def late_status?
+    status ||= statuses.last
+    (status != nil && status.start_late_notice < Time.now) || (status==nil && created_at < Time.now - 14.days)
+  end
   
   #avatar stuffs
   # s3 Credentials

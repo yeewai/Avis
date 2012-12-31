@@ -1,0 +1,16 @@
+doctype html
+html
+  body
+    css:
+      h2 {
+      	margin-bottom: 0px;
+      	color: #816a85; 
+      	font-weight:normal;
+      }
+      p {
+      	color: #4e5e4e;
+      }
+    p
+      | Hey there. This is a message from Catalytic Productions to remind you that you have missed your status update for this week. Please check in with us so that we know you're still alive! Go to 
+      =link_to "AVIS", CPMailer::BASE_URL + statuses_path
+      |  to make a status update. You will receive this message once every other day until your status has been updated. Thanks! :)

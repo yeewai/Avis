@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def authorize 
+    Status.checkStatuses #This is so cheating. =.=
     redirect_to login_url alert: "Not logged in!" if current_user.nil?
   end
   
