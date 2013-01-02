@@ -92,6 +92,14 @@ nav {
 			padding: 10px;
 		}
 	}
+	
+	ul#online_users {
+	  display: table;
+	  >li {
+	    float: left;
+	    padding-right: 10px;
+	  }
+	}
 }
 
 .content {

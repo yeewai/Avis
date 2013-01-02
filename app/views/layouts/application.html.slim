@@ -86,6 +86,14 @@ html
               strong BBCode now supported.
               | So you can use all the tags you've been using on gaia.
           br
+        p
+          b Users on AVIS in the last 5 minutes
+          ul#online_users
+            -whos_online.each do |user|
+              li
+                =link_to user.username, user
+                | --
+                =link_to "Stalk 'em", user.last_online_at
           
     .content
       = yield

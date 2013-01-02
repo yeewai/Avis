@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def authorize 
+    current_user.last_online = Time.now
+    current_user.last_online_at = request.fullpath
+    current_user.save
     Status.checkStatuses #This is so cheating. =.=
     redirect_to login_url alert: "Not logged in!" if current_user.nil?
   end
@@ -18,4 +21,5 @@ class ApplicationController < ActionController::Base
   def authorize_edit(user)
     current_user.role == User::ROLE_ADMIN || current_user == user
   end
+
 end

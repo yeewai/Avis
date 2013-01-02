@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # Admin users (chanted and I) are the only ones able to add/demote/promote users
   attr_accessible :bio, :birthday, :colour, :contact, :email, :gmt, :name, :notify, 
   :position, :quote, :residence, :role, :status, :theme, :username, :website, :zodiac, 
-  :password, :password_confirmation, :avatar #does not even need status. Please remove
+  :password, :password_confirmation, :avatar, :last_online, :last_online_at #does not even need status. Please remove
   
   default_scope :order => "role DESC"
   
