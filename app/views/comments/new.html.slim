@@ -16,6 +16,9 @@ h2 Comments
           .text
             = raw comment.content.bbcode_to_html
           = link_to "Quote", "#comment_content", class: "quote_button"
+          -if authorize_edit(comment.user)
+            |   
+            = link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete
 h3 New comment
 
 = form_for @comment do |f|
