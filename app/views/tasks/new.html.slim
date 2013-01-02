@@ -37,6 +37,8 @@ h2 Tasks
               = f.collection_select :owner_id, User.all, :id, :username, :include_blank => true
             br(clear="all")
             .actions = f.submit 'Save Task'
+            -if authorize_edit(task.user)
+              = link_to 'Delete Task', task, :confirm => 'Are you sure?', :method => :delete
         
       
 h3 New task
